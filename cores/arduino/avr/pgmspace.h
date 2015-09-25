@@ -47,8 +47,10 @@ typedef uint32_t prog_uint32_t;
 
 #define memcpy_P(dest, src, num) memcpy((dest), (src), (num))
 #define strcpy_P(dest, src) strcpy((dest), (src))
+#define strncpy_P(dest, src, len) strncpy((dest), (src), (len))
 #define strcat_P(dest, src) strcat((dest), (src))
 #define strcmp_P(a, b) strcmp((a), (b))
+#define strncmp_P(a, b, n) strncmp((a), (b), (n))
 #define strstr_P(a, b) strstr((a), (b))
 #define strlen_P(a) strlen((a))
 #define sprintf_P(s, f, ...) sprintf((s), (f), __VA_ARGS__)
