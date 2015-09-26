@@ -231,5 +231,9 @@ extern Uart Serial1;
 #define PERIPH_WIRE          sercom2
 #define WIRE_IT_HANDLER      SERCOM2_Handler
 
+#define PERIPH_SPI           sercom3
+#define PAD_SPI_TX           SPI_PAD_2_SCK_3
+#define PAD_SPI_RX           SERCOM_RX_PAD_0
+
 #endif /* _VARIANT_SODAQ_AUTONOMO */
 
