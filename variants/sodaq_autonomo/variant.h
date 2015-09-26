@@ -228,5 +228,8 @@ extern Uart Serial1;
 #define SERIAL_PORT_HARDWARE1       Serial1
 #define SERIAL_PORT_HARDWARE_OPEN1  Serial1
 
+#define PERIPH_WIRE          sercom2
+#define WIRE_IT_HANDLER      SERCOM2_Handler
+
 #endif /* _VARIANT_SODAQ_AUTONOMO */
 
