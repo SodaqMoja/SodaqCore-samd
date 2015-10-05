@@ -22,15 +22,28 @@
 
 char *dtostrf (double val, signed char width, unsigned char prec, char *sout) {
   uint32_t iPart = (uint32_t)val;
-
+  sprintf(sout, "%d", iPart);
+    
   if (prec > 0) {
+    uint8_t pos = strlen(sout);
+    sout[pos++] = '.';
     uint32_t dPart = (uint32_t)((val - (double)iPart) * pow(10, prec));
-    sprintf(sout, "%d.%d", iPart, dPart);
-  }
-  else {
-    sprintf(sout, "%d", iPart);
-  }
 
+    for (uint8_t i = (prec - 1); i > 0; i--) {
+      size_t pow10 = pow(10, i);
+      if (dPart < pow10) {
+        sout[pos++] = '0';
+      }
+      else {
+        sout[pos++] = '0' + dPart / pow10;
+        dPart = dPart % pow10;
+      }
+    }
+
+    sout[pos++] = '0' + dPart;
+    sout[pos] = '\0';
+  }
+  
   return sout;
 }
 
