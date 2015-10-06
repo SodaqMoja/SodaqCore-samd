@@ -27,7 +27,8 @@ char *dtostrf (double val, signed char width, unsigned char prec, char *sout) {
   if (prec > 0) {
     uint8_t pos = strlen(sout);
     sout[pos++] = '.';
-    uint32_t dPart = (uint32_t)((val - (double)iPart) * pow(10, prec));
+    int32_t dPart = (uint32_t)((val - floor(val)) * pow(10, prec));
+    dPart = dPart > 0 ? dPart : 0;
 
     for (uint8_t i = (prec - 1); i > 0; i--) {
       size_t pow10 = pow(10, i);
@@ -36,6 +37,7 @@ char *dtostrf (double val, signed char width, unsigned char prec, char *sout) {
       }
       else {
         sout[pos++] = '0' + dPart / pow10;
+
         dPart = dPart % pow10;
       }
     }
