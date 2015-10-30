@@ -19,13 +19,15 @@
 
 #include <stdio.h>
 #include <stdint.h>
+#include <string.h>
+#include <math.h>
 
 char *dtostrf (double val, signed char width, unsigned char prec, char *sout) {
-  uint32_t iPart = (uint32_t)val;
+  int iPart = (uint32_t)val;
   sprintf(sout, "%d", iPart);
     
   if (prec > 0) {
-    uint8_t pos = strlen(sout);
+    size_t pos = strlen(sout);
     sout[pos++] = '.';
     int32_t dPart = (uint32_t)((val - floor(val)) * pow(10, prec));
     dPart = dPart > 0 ? dPart : 0;
