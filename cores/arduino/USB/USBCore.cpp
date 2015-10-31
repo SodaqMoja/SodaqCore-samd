@@ -621,6 +621,7 @@ uint32_t USBDeviceClass::send(uint32_t ep, const void *data, uint32_t len)
 {
 	uint32_t written = 0;
 	uint32_t length = 0;
+	const uint8_t * my_data = (const uint8_t *)data;
 
 	if (!_usbConfiguration)
 		return -1;
@@ -667,7 +668,7 @@ uint32_t USBDeviceClass::send(uint32_t ep, const void *data, uint32_t len)
 		}
 
 		/* memcopy could be safer in multi threaded environment */
-		memcpy(&udd_ep_in_cache_buffer[ep], data, length);
+		memcpy(&udd_ep_in_cache_buffer[ep], my_data, length);
 
 		usbd.epBank1SetAddress(ep, &udd_ep_in_cache_buffer[ep]);
 		usbd.epBank1SetByteCount(ep, length);
@@ -680,7 +681,7 @@ uint32_t USBDeviceClass::send(uint32_t ep, const void *data, uint32_t len)
 
 		written += length;
 		len -= length;
-		data = (char *)data + length;
+		my_data += length;
 	}
 	return written;
 }
