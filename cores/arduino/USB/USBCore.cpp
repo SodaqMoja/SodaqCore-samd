@@ -581,6 +581,7 @@ uint8_t USBDeviceClass::armRecv(uint32_t ep)
 uint32_t USBDeviceClass::send(uint32_t ep, const void *data, uint32_t len)
 {
 	uint32_t length = 0;
+	const uint8_t * my_data = (const uint8_t *)data;
 
 	if (!_usbConfiguration)
 		return -1;
@@ -598,10 +599,10 @@ uint32_t USBDeviceClass::send(uint32_t ep, const void *data, uint32_t len)
 // All the above problems must be properly fixed before reenabling
 // this part
 
-	if ((unsigned int)data > 0x20000000)
+	if ((unsigned int)my_data > 0x20000000)
 	{
 		// Buffer in RAM
-		usbd.epBank1SetAddress(ep, (void *)data);
+		usbd.epBank1SetAddress(ep, (void *)my_data);
 		usbd.epBank1SetMultiPacketSize(ep, 0);
 
 		usbd.epBank1SetByteCount(ep, len);
@@ -630,7 +631,7 @@ uint32_t USBDeviceClass::send(uint32_t ep, const void *data, uint32_t len)
 		}
 
 		/* memcopy could be safer in multi threaded environment */
-		memcpy(&udd_ep_in_cache_buffer[ep], data, length);
+		memcpy(&udd_ep_in_cache_buffer[ep], my_data, length);
 
 		usbd.epBank1SetAddress(ep, &udd_ep_in_cache_buffer[ep]);
 		usbd.epBank1SetByteCount(ep, length);
@@ -646,7 +647,7 @@ uint32_t USBDeviceClass::send(uint32_t ep, const void *data, uint32_t len)
 			;  // need fire exit.
 		}
 		len -= length;
-		data += length;
+		my_data += length;
 	}
 	return len;
 }
