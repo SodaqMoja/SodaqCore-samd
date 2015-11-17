@@ -1,3 +1,24 @@
+Autonomo SAMD CORE v1.6.4-sodaq
+
+This version is based of commit 90e234f, plus
+(from the GIT shortlog)
+* Undo the change in platform.txt for 1.6.6
+* Add pins for SD_DFLASH and CS_SD to match the names on Autonomo rev4
+* Avoid using void* in an arithmetic expression (in USBDeviceClass::send)
+* Correct a few types in dtostrf.c to eliminate compilation warnings
+* Changed to using floor(val) instea of iPart.
+* This adds zeros after the decimal point if required.
+* Added support for zero decimal places.
+* A fix for the String class conversion of floats/doubles.
+* Add strncpy_P and strncmp_P defines in pgmspace.h
+* Add a a few missing enum values for ADC and TCx in WVariant.h
+* Changed hardcoded A0 for DAC in analogWrite()
+* Adding initialisation of TC6 & TC7
+* Added the same clock divider rule as the G18
+* Remove USB_HOST_ENABLE, we don't have the hardware to output USB power
+* Make prototype of Serial_::begin consistent with implementation
+* Add boards.txt, platform.txt and variants (for Autonomo)
+
 SAMD CORE 1.6.3
 
 * Added SPI.transfer16(..) method
