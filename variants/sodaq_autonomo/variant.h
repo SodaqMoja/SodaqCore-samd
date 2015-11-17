@@ -130,10 +130,14 @@ static const uint8_t A13 = PIN_A13 ;
 #define PAD_SERIAL1_RX       (SERCOM_RX_PAD_1)
 
 // Other Bee socket pins
-static const uint8_t RTS = (38u);
-static const uint8_t CTS = (39u);
+// MCU_RTS <-> BEECTS
+static const uint8_t MCU_RTS = (38u);
+static const uint8_t BEECTS = (38u);
+// MCU_CTS <-> BEERTS
+static const uint8_t MCU_CTS = (39u);
+static const uint8_t BEERTS = (39u);
 
-static const uint8_t DTR = PIN_A13;
+static const uint8_t BEEDTR = PIN_A13;
 static const uint8_t RI_AS = (18u);
 
 /*
@@ -147,12 +151,14 @@ static const uint8_t RI_AS = (18u);
 #define PIN_SPI_SCK          (45u)
 
 static const uint8_t MISO = PIN_SPI_MISO;
-static const uint8_t SS	  = PIN_SPI_SS ;
+static const uint8_t SS   = PIN_SPI_SS ;
+static const uint8_t SS_DFLASH  = PIN_SPI_SS ;
 static const uint8_t MOSI = PIN_SPI_MOSI ;
 static const uint8_t SCK  = PIN_SPI_SCK ;
 
 // SD Card CS/SS pin
 static const uint8_t SS_2 = (46u);
+static const uint8_t CS_SD = (46u);
 
 // Other Digital Pins
 static const uint8_t VCC_SW  = (16u);
