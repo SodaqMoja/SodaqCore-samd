@@ -129,6 +129,12 @@ static const uint8_t A13 = PIN_A13 ;
 #define PAD_SERIAL1_TX       (UART_TX_RTS_CTS_PAD_0_2_3)
 #define PAD_SERIAL1_RX       (SERCOM_RX_PAD_1)
 
+// Serial2
+#define PIN_SERIAL2_RX       (49ul)
+#define PIN_SERIAL2_TX       (50ul)
+#define PAD_SERIAL2_TX       (UART_TX_PAD_2)
+#define PAD_SERIAL2_RX       (SERCOM_RX_PAD_1)
+
 // Other Bee socket pins
 // MCU_RTS <-> BEECTS
 static const uint8_t MCU_RTS = (38u);
@@ -206,6 +212,12 @@ extern SERCOM sercom5;
 
 extern Uart Serial;
 extern Uart Serial1;
+#ifdef ENABLE_SERIAL2
+extern Uart Serial2;
+#endif
+#ifdef ENABLE_SERIAL3
+extern Uart Serial3;
+#endif
 
 #endif
 

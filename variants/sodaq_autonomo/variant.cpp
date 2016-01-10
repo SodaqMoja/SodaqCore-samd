@@ -106,17 +106,21 @@ const PinDescription g_APinDescription[]=
   // 47..48 - USB
   { PORTA, 24, PIO_COM,        PIN_ATTR_NONE,                                     No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_NONE }, // USB/DM
   { PORTA, 25, PIO_COM,        PIN_ATTR_NONE,                                     No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_NONE }, // USB/DP
+
+  // 49..50 - Serial2 (alternative use for D6/D7)
+  { PORTB, 13, PIO_SERCOM,     PIN_ATTR_DIGITAL,                                  No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_13 }, // RX, SERCOM4/PAD[1],
+  { PORTB, 14, PIO_SERCOM,     PIN_ATTR_DIGITAL,                                  No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_14 }, // TX, SERCOM4/PAD[2],
 } ;
 
 const void* g_apTCInstances[TCC_INST_NUM+TC_INST_NUM]={ TCC0, TCC1, TCC2, TC3, TC4, TC5, TC6, TC7 } ;
 
 // Multi-serial objects instantiation
-SERCOM sercom0( SERCOM0 ) ;
-SERCOM sercom1( SERCOM1 ) ;
-SERCOM sercom2( SERCOM2 ) ;
-SERCOM sercom3( SERCOM3 ) ;
-SERCOM sercom4( SERCOM4 ) ;
-SERCOM sercom5( SERCOM5 ) ;
+SERCOM sercom0( SERCOM0 ) ;	// Serial
+SERCOM sercom1( SERCOM1 ) ;	// ?? Serial3
+SERCOM sercom2( SERCOM2 ) ;	// I2C
+SERCOM sercom3( SERCOM3 ) ;	// SPI
+SERCOM sercom4( SERCOM4 ) ;	// ?? Serial2
+SERCOM sercom5( SERCOM5 ) ;	// Serial1
 
 Uart Serial( &sercom0, PIN_SERIAL_RX, PIN_SERIAL_TX, PAD_SERIAL_RX, PAD_SERIAL_TX ) ;
 void SERCOM0_Handler()
@@ -130,3 +134,18 @@ void SERCOM5_Handler()
   Serial1.IrqHandler();
 }
 
+#ifdef ENABLE_SERIAL2
+Uart Serial2( &sercom4, PIN_SERIAL2_RX, PIN_SERIAL2_TX, PAD_SERIAL2_RX, PAD_SERIAL2_TX );
+void SERCOM4_Handler()
+{
+  Serial2.IrqHandler();
+}
+#endif
+
+#ifdef ENABLE_SERIAL3
+Uart Serial3( &sercom1, PIN_SERIAL2_RX, PIN_SERIAL2_TX, PAD_SERIAL2_RX, PAD_SERIAL2_TX );
+void SERCOM1_Handler()
+{
+  Serial3.IrqHandler();
+}
+#endif
