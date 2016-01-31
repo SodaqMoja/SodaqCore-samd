@@ -1,3 +1,7 @@
+# Emacs
+*~
+
+# Distribution files
 *.bz2
 
 bootloaders/*/build/
