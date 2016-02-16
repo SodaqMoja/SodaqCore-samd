@@ -67,3 +67,57 @@ sodaq_autonomo_serial2.build.variant=sodaq_autonomo
 sodaq_autonomo_serial2.build.variant_system_lib=
 sodaq_autonomo_serial2.build.vid=0x2341
 sodaq_autonomo_serial2.build.pid=0x804d
+
+# SODAQ/Autonomo with enabled Serial3 (D12/D13)
+# ---------------------------------------
+sodaq_autonomo_serial3.name=SODAQ Autonomo with Serial3
+sodaq_autonomo_serial3.vid.0=0x2341
+sodaq_autonomo_serial3.pid.0=0x804d
+sodaq_autonomo_serial3.vid.1=0x2341
+sodaq_autonomo_serial3.pid.1=0x004d
+sodaq_autonomo_serial3.upload.tool=bossac
+sodaq_autonomo_serial3.upload.protocol=sam-ba
+sodaq_autonomo_serial3.upload.maximum_size=262144
+sodaq_autonomo_serial3.upload.use_1200bps_touch=true
+sodaq_autonomo_serial3.upload.wait_for_upload_port=true
+sodaq_autonomo_serial3.upload.native_usb=true
+sodaq_autonomo_serial3.build.mcu=cortex-m0plus
+sodaq_autonomo_serial3.build.f_cpu=48000000L
+sodaq_autonomo_serial3.build.usb_product="SODAQ Autonomo"
+sodaq_autonomo_serial3.build.usb_manufacturer="SODAQ"
+sodaq_autonomo_serial3.build.board=SODAQ_AUTONOMO
+sodaq_autonomo_serial3.build.core=arduino
+sodaq_autonomo_serial3.build.extra_flags=-D__SAMD21J18A__ {build.usb_flags} -DENABLE_SERIAL3
+sodaq_autonomo_serial3.build.ldscript=linker_scripts/gcc/flash_with_bootloader.ld
+sodaq_autonomo_serial3.build.openocdscript=openocd_scripts/sodaq_autonomo.cfg
+sodaq_autonomo_serial3.build.variant=sodaq_autonomo
+sodaq_autonomo_serial3.build.variant_system_lib=
+sodaq_autonomo_serial3.build.vid=0x2341
+sodaq_autonomo_serial3.build.pid=0x804d
+
+# SODAQ/Autonomo with enabled Serial2 (D6/D7) and Serial3 (D12/D13)
+# ---------------------------------------
+sodaq_autonomo_serial23.name=SODAQ Autonomo with Serial2 and Serial3
+sodaq_autonomo_serial23.vid.0=0x2341
+sodaq_autonomo_serial23.pid.0=0x804d
+sodaq_autonomo_serial23.vid.1=0x2341
+sodaq_autonomo_serial23.pid.1=0x004d
+sodaq_autonomo_serial23.upload.tool=bossac
+sodaq_autonomo_serial23.upload.protocol=sam-ba
+sodaq_autonomo_serial23.upload.maximum_size=262144
+sodaq_autonomo_serial23.upload.use_1200bps_touch=true
+sodaq_autonomo_serial23.upload.wait_for_upload_port=true
+sodaq_autonomo_serial23.upload.native_usb=true
+sodaq_autonomo_serial23.build.mcu=cortex-m0plus
+sodaq_autonomo_serial23.build.f_cpu=48000000L
+sodaq_autonomo_serial23.build.usb_product="SODAQ Autonomo"
+sodaq_autonomo_serial23.build.usb_manufacturer="SODAQ"
+sodaq_autonomo_serial23.build.board=SODAQ_AUTONOMO
+sodaq_autonomo_serial23.build.core=arduino
+sodaq_autonomo_serial23.build.extra_flags=-D__SAMD21J18A__ {build.usb_flags} -DENABLE_SERIAL2 -DENABLE_SERIAL3
+sodaq_autonomo_serial23.build.ldscript=linker_scripts/gcc/flash_with_bootloader.ld
+sodaq_autonomo_serial23.build.openocdscript=openocd_scripts/sodaq_autonomo.cfg
+sodaq_autonomo_serial23.build.variant=sodaq_autonomo
+sodaq_autonomo_serial23.build.variant_system_lib=
+sodaq_autonomo_serial23.build.vid=0x2341
+sodaq_autonomo_serial23.build.pid=0x804d
