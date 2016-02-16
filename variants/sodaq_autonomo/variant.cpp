@@ -108,9 +108,13 @@ const PinDescription g_APinDescription[]=
   { PORTA, 25, PIO_COM,        PIN_ATTR_NONE,                                     No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_NONE }, // USB/DP
 
   // 49..50 - Serial2 (alternative use for D6/D7)
-  { PORTB, 13, PIO_SERCOM,     PIN_ATTR_DIGITAL,                                  No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_13 }, // RX, SERCOM4/PAD[1],
-  { PORTB, 14, PIO_SERCOM,     PIN_ATTR_DIGITAL,                                  No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_14 }, // TX, SERCOM4/PAD[2],
-} ;
+  { PORTB, 13, PIO_SERCOM,     PIN_ATTR_DIGITAL,                                  No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_13 }, // RX, SERCOM4/PAD[1]
+  { PORTB, 14, PIO_SERCOM,     PIN_ATTR_DIGITAL,                                  No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_14 }, // TX, SERCOM4/PAD[2]
+
+  // 51..52 - Serial3 (alternative use for D12/D13)
+  { PORTA, 17, PIO_SERCOM,     PIN_ATTR_DIGITAL,                                  No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_1  }, // RX, SERCOM1/PAD[1]
+  { PORTA, 18, PIO_SERCOM,     PIN_ATTR_DIGITAL,                                  No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_2  }, // TX, SERCOM1/PAD[2]
+};
 
 const void* g_apTCInstances[TCC_INST_NUM+TC_INST_NUM]={ TCC0, TCC1, TCC2, TC3, TC4, TC5, TC6, TC7 } ;
 
@@ -143,7 +147,7 @@ void SERCOM4_Handler()
 #endif
 
 #ifdef ENABLE_SERIAL3
-Uart Serial3( &sercom1, PIN_SERIAL2_RX, PIN_SERIAL2_TX, PAD_SERIAL2_RX, PAD_SERIAL2_TX );
+Uart Serial3( &sercom1, PIN_SERIAL3_RX, PIN_SERIAL3_TX, PAD_SERIAL3_RX, PAD_SERIAL3_TX );
 void SERCOM1_Handler()
 {
   Serial3.IrqHandler();
