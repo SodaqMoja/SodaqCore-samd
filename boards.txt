@@ -148,3 +148,30 @@ sodaq_wdt.build.variant=sodaq_wdt
 sodaq_wdt.build.variant_system_lib=
 sodaq_wdt.build.vid=0x2341
 sodaq_wdt.build.pid=0x804d
+
+# SODAQ/LoRaONE
+# ---------------------------------------
+sodaq_autonomo.name=SODAQ LoRaONE
+sodaq_autonomo.vid.0=0x2341
+sodaq_autonomo.pid.0=0x804d
+sodaq_autonomo.vid.1=0x2341
+sodaq_autonomo.pid.1=0x004d
+sodaq_autonomo.upload.tool=bossac
+sodaq_autonomo.upload.protocol=sam-ba
+sodaq_autonomo.upload.maximum_size=262144
+sodaq_autonomo.upload.use_1200bps_touch=true
+sodaq_autonomo.upload.wait_for_upload_port=true
+sodaq_autonomo.upload.native_usb=true
+sodaq_autonomo.build.mcu=cortex-m0plus
+sodaq_autonomo.build.f_cpu=48000000L
+sodaq_autonomo.build.usb_product="SODAQ LoRaONE"
+sodaq_autonomo.build.usb_manufacturer="SODAQ"
+sodaq_autonomo.build.board=SODAQ_LORAONE
+sodaq_autonomo.build.core=arduino
+sodaq_autonomo.build.extra_flags=-D__SAMD21G18A__ {build.usb_flags}
+sodaq_autonomo.build.ldscript=linker_scripts/gcc/flash_with_bootloader.ld
+sodaq_autonomo.build.openocdscript=openocd_scripts/sodaq_autonomo.cfg
+sodaq_autonomo.build.variant=sodaq_loraone
+sodaq_autonomo.build.variant_system_lib=
+sodaq_autonomo.build.vid=0x2341
+sodaq_autonomo.build.pid=0x804d
