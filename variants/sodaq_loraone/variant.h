@@ -1,5 +1,5 @@
 /*
-  Copyright (c) 2014-2015 Arduino LLC.  All right reserved.
+  Copyright (c) 2016 SODAQ.  All right reserved.
 
   This library is free software; you can redistribute it and/or
   modify it under the terms of the GNU Lesser General Public
@@ -50,9 +50,9 @@ extern "C"
  *----------------------------------------------------------------------------*/
 
 // Number of pins defined in PinDescription array
-#define PINS_COUNT           (53u)
-#define NUM_DIGITAL_PINS     (14u)
-#define NUM_ANALOG_INPUTS    (14u)
+#define PINS_COUNT           (52u)
+#define NUM_DIGITAL_PINS     (14u)	// Without the "other" Digital Pins
+#define NUM_ANALOG_INPUTS    (14u)	// Without the "other" Analog Pins
 #define NUM_ANALOG_OUTPUTS   (1u)
 
 #define digitalPinToPort(P)        ( &(PORT->Group[g_APinDescription[P].ulPort]) )
@@ -118,31 +118,16 @@ static const uint8_t A13 = PIN_A13 ;
  * Serial interfaces
  */
 // Serial
-#define PIN_SERIAL_RX       (43u)
-#define PIN_SERIAL_TX       (44u)
+#define PIN_SERIAL_RX       (42u)
+#define PIN_SERIAL_TX       (43u)
 #define PAD_SERIAL_TX       (UART_TX_PAD_0)
 #define PAD_SERIAL_RX       (SERCOM_RX_PAD_1)
 
 // Serial1
-#define PIN_SERIAL1_RX       (45u)
-#define PIN_SERIAL1_TX       (46u)
-#define PAD_SERIAL1_TX       (UART_TX_PAD_0)
-#define PAD_SERIAL1_RX       (SERCOM_RX_PAD_1)
-
-/*
- * SPI Interfaces
- */
-#define SPI_INTERFACES_COUNT 1
-
-#define PIN_SPI_MISO         (47u)
-#define PIN_SPI_SS           (48u)
-#define PIN_SPI_MOSI         (49u)
-#define PIN_SPI_SCK          (50u)
-
-static const uint8_t MISO = PIN_SPI_MISO;
-static const uint8_t SS   = PIN_SPI_SS ;
-static const uint8_t MOSI = PIN_SPI_MOSI ;
-static const uint8_t SCK  = PIN_SPI_SCK ;
+#define PIN_SERIAL1_RX      (44u)
+#define PIN_SERIAL1_TX      (45u)
+#define PAD_SERIAL1_TX      (UART_TX_PAD_0)
+#define PAD_SERIAL1_RX      (SERCOM_RX_PAD_1)
 
 // Other Digital Pins
 static const uint8_t LED_RED       = PIN_LED_RED;
@@ -158,21 +143,41 @@ static const uint8_t SWITCH_SENS   = (23u);
 
 // Other Analog Pins
 static const uint8_t DAC0          = PIN_A0; // or (24u) implications for cores/arduino/wiring_analog.c analogWrite()
-static const uint8_t AREF = (40u);
+static const uint8_t AREF          = (39u);
+
+/*
+ * SPI Interfaces
+ */
+#define SPI_INTERFACES_COUNT 1
+
+#define PIN_SPI_MISO         (46u)
+#define PIN_SPI_SS           (47u)
+#define PIN_SPI_MOSI         (48u)
+#define PIN_SPI_SCK          (49u)
+#define PERIPH_SPI           sercom0
+#define PAD_SPI_TX           SPI_PAD_2_SCK_3
+#define PAD_SPI_RX           SERCOM_RX_PAD_0
+
+static const uint8_t MISO = PIN_SPI_MISO;
+static const uint8_t SS   = PIN_SPI_SS ;
+static const uint8_t MOSI = PIN_SPI_MOSI ;
+static const uint8_t SCK  = PIN_SPI_SCK ;
 
 /*
  * Wire Interfaces
  */
 #define WIRE_INTERFACES_COUNT 1
 
-#define PIN_WIRE_SDA         (51u)
-#define PIN_WIRE_SCL         (52u)
+#define PIN_WIRE_SDA         (50u)
+#define PIN_WIRE_SCL         (51u)
+#define PERIPH_WIRE          sercom3
+#define WIRE_IT_HANDLER      SERCOM3_Handler
 
 /*
  * USB
  */
-#define PIN_USB_DM          (41ul)
-#define PIN_USB_DP          (42ul)
+#define PIN_USB_DM          (40ul)
+#define PIN_USB_DP          (41ul)
 
 #ifdef __cplusplus
 }
@@ -225,12 +230,4 @@ extern Uart Serial1;
 #define SERIAL_PORT_HARDWARE1       Serial1
 #define SERIAL_PORT_HARDWARE_OPEN1  Serial1
 
-#define PERIPH_WIRE          sercom3
-#define WIRE_IT_HANDLER      SERCOM3_Handler
-
-#define PERIPH_SPI           sercom0
-#define PAD_SPI_TX           SPI_PAD_2_SCK_3
-#define PAD_SPI_RX           SERCOM_RX_PAD_0
-
 #endif /* _VARIANT_SODAQ_LORAONE_ */
-
