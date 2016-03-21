@@ -51,7 +51,7 @@ const PinDescription g_APinDescription[]=
   { PORTB, 22, PIO_OUTPUT,     (PIN_ATTR_DIGITAL),                                 No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_NONE }, // ENABLE_PIN_IO
   { PORTA, 28, PIO_INPUT,      (PIN_ATTR_DIGITAL),                                 No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_8    }, // SWITCH_SENSE
 
-  // 24..38 Main IO Pins Analog Properties
+  // 24..37 Main IO Pins Analog Properties
   { PORTA, 2,  PIO_ANALOG,     (PIN_ATTR_ANALOG),                                  ADC_Channel0,   NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_2    },
   { PORTA, 3,  PIO_ANALOG,     (PIN_ATTR_ANALOG),                                  ADC_Channel1,   NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_3    },
   { PORTB, 8,  PIO_ANALOG,     (PIN_ATTR_ANALOG),                                  ADC_Channel2,   NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_8    },
@@ -67,29 +67,29 @@ const PinDescription g_APinDescription[]=
   { PORTB, 2,  PIO_ANALOG,     (PIN_ATTR_ANALOG),                                  ADC_Channel10,  NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_2    },
   { PORTB, 3,  PIO_ANALOG,     (PIN_ATTR_ANALOG),                                  ADC_Channel11,  NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_3    },
 
-  // 39..40 Other Analog Pins
+  // 38..39 Other Analog Pins
   { PORTA, 2,  PIO_ANALOG,     (PIN_ATTR_ANALOG),                                  DAC_Channel0,   NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_2    }, // DAC/VOUT
   { PORTA, 3,  PIO_ANALOG,     (PIN_ATTR_ANALOG),                                  ADC_Channel1,   NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_NONE }, // AREF
 
-  // 41..42 USB Pins
+  // 40..41 USB Pins
   { PORTA, 24, PIO_COM,        (PIN_ATTR_NONE),                                    No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_NONE }, // USB_N
   { PORTA, 25, PIO_COM,        (PIN_ATTR_NONE),                                    No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_NONE }, // USB_P
 
-  // 43..44 Serial
+  // 42..43 Serial
   { PORTB, 3,  PIO_SERCOM,     (PIN_ATTR_DIGITAL),                                 No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_3    }, // SERIAL_RX
   { PORTB, 2,  PIO_SERCOM,     (PIN_ATTR_DIGITAL),                                 No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_2    }, // SERIAL_TX
 
-  // 45..46 Serial1
+  // 44..45 Serial1
   { PORTA, 13, PIO_SERCOM,     (PIN_ATTR_DIGITAL),                                 No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_13   }, // SERIAL1_RX
   { PORTA, 12, PIO_SERCOM,     (PIN_ATTR_DIGITAL),                                 No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_12   }, // SERIAL1_TX
 
-  // 47..50 SPI (This might be removed)
+  // 46..49 SPI (This might be removed)
   { PORTA, 8,  PIO_SERCOM,     (PIN_ATTR_DIGITAL),                                 No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_NMI  }, // SPI_MISO
   { PORTA, 9,  PIO_SERCOM,     (PIN_ATTR_DIGITAL),                                 No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_9    }, // SPI_SS
   { PORTA, 10, PIO_SERCOM,     (PIN_ATTR_DIGITAL),                                 No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_10   }, // SPI_MOSI
   { PORTA, 11, PIO_SERCOM,     (PIN_ATTR_DIGITAL),                                 No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_11   }, // SPI_SCK
 
-  // 51..52 I2C for GPS & Accelerometer
+  // 50..51 I2C for GPS & Accelerometer
   { PORTA, 22, PIO_SERCOM,     (PIN_ATTR_DIGITAL),                                 No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_6    }, // I2C_SDA
   { PORTA, 23, PIO_SERCOM,     (PIN_ATTR_DIGITAL),                                 No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_7    }  // I2C_SCL
 } ;
@@ -97,12 +97,12 @@ const PinDescription g_APinDescription[]=
 const void* g_apTCInstances[TCC_INST_NUM+TC_INST_NUM]={ TCC0, TCC1, TCC2, TC3, TC4, TC5 } ;
 
 // Multi-serial objects instantiation
-SERCOM sercom0( SERCOM0 ) ;
+SERCOM sercom0( SERCOM0 ) ;	// SPI
 SERCOM sercom1( SERCOM1 ) ;
-SERCOM sercom2( SERCOM2 ) ;
-SERCOM sercom3( SERCOM3 ) ;
+SERCOM sercom2( SERCOM2 ) ;	// Serial1
+SERCOM sercom3( SERCOM3 ) ;	// I2C
 SERCOM sercom4( SERCOM4 ) ;
-SERCOM sercom5( SERCOM5 ) ;
+SERCOM sercom5( SERCOM5 ) ;	// Serial
 
 Uart Serial(&sercom5, PIN_SERIAL_RX, PIN_SERIAL_TX, PAD_SERIAL_RX, PAD_SERIAL_TX ) ;
 Uart Serial1(&sercom2, PIN_SERIAL1_RX, PIN_SERIAL1_TX, PAD_SERIAL1_RX, PAD_SERIAL1_TX);
