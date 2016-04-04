@@ -76,8 +76,8 @@ const PinDescription g_APinDescription[]=
   { PORTA, 25, PIO_COM,        (PIN_ATTR_NONE),                                    No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_NONE }, // USB_P
 
   // 42..43 Serial
-  { PORTB, 3,  PIO_SERCOM,     (PIN_ATTR_DIGITAL),                                 No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_3    }, // SERIAL_RX
-  { PORTB, 2,  PIO_SERCOM,     (PIN_ATTR_DIGITAL),                                 No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_2    }, // SERIAL_TX
+  { PORTB, 3,  PIO_SERCOM_ALT, (PIN_ATTR_DIGITAL),                                 No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_3    }, // SERIAL_RX
+  { PORTB, 2,  PIO_SERCOM_ALT, (PIN_ATTR_DIGITAL),                                 No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_2    }, // SERIAL_TX
 
   // 44..45 Serial1
   { PORTA, 13, PIO_SERCOM,     (PIN_ATTR_DIGITAL),                                 No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_13   }, // SERIAL1_RX
