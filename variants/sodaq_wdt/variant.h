@@ -19,6 +19,9 @@
 #ifndef _VARIANT_SODAQ_WDT_
 #define _VARIANT_SODAQ_WDT_
 
+// The definitions here needs a SAMD core >=1.6.3
+#define ARDUINO_SAMD_VARIANT_COMPLIANCE 10603
+
 /*----------------------------------------------------------------------------
  *        Definitions
  *----------------------------------------------------------------------------*/
