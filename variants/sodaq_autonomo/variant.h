@@ -158,8 +158,14 @@ static const uint8_t RI_AS = (18u);
 /*
  * SPI Interfaces
  */
-#define SPI_INTERFACES_COUNT 1
 
+#ifdef ENABLE_SPI1
+#define SPI_INTERFACES_COUNT 2
+#else
+#define SPI_INTERFACES_COUNT 1
+#endif
+
+// SPI
 #define PIN_SPI_MISO         (42u)
 #define PIN_SPI_SS           (43u)
 #define PIN_SPI_MOSI         (44u)
@@ -170,6 +176,17 @@ static const uint8_t SS   = PIN_SPI_SS ;
 static const uint8_t SS_DFLASH  = PIN_SPI_SS ;
 static const uint8_t MOSI = PIN_SPI_MOSI ;
 static const uint8_t SCK  = PIN_SPI_SCK ;
+
+// SPI1
+#define PIN_SPI1_MISO        (53u)
+#define PIN_SPI1_SS          (54u)
+#define PIN_SPI1_MOSI        (55u)
+#define PIN_SPI1_SCK         (56u)
+
+static const uint8_t MISO1 = PIN_SPI1_MISO;
+static const uint8_t SS1   = PIN_SPI1_SS;
+static const uint8_t MOSI1 = PIN_SPI1_MOSI;
+static const uint8_t SCK1  = PIN_SPI1_SCK;
 
 // SD Card CS/SS pin
 static const uint8_t SS_2 = (46u);
@@ -261,6 +278,12 @@ extern Uart Serial3;
 #define PERIPH_SPI           sercom3
 #define PAD_SPI_TX           SPI_PAD_2_SCK_3
 #define PAD_SPI_RX           SERCOM_RX_PAD_0
+
+#ifdef ENABLE_SPI1
+#define PERIPH_SPI1          sercom4
+#define PAD_SPI1_TX          SPI_PAD_2_SCK_3
+#define PAD_SPI1_RX          SERCOM_RX_PAD_0
+#endif
 
 #endif /* _VARIANT_SODAQ_AUTONOMO */
 
