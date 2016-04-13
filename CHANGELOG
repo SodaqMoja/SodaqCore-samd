@@ -2,6 +2,8 @@ SODAQ SAMD CORE v1.6.7-sodaq
 
 This version is based of ArduionCore-samd commit 897532f, plus
 (from the GIT shortlog)
+* Added PWM capability to D8 D9.
+* Add Autonomo sub-variant "... with SPI1"
 * Add ARDUINO_SAMD_VARIANT_COMPLIANCE 10603
 * Added PWM to the RGB pins.
 * Fixed Serial. Description required SERCOM_ALT.
