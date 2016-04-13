@@ -122,6 +122,33 @@ sodaq_autonomo_serial23.build.variant_system_lib=
 sodaq_autonomo_serial23.build.vid=0x2341
 sodaq_autonomo_serial23.build.pid=0x804d
 
+# SODAQ/Autonomo with enabled SPI1 (D5..D8)
+# ---------------------------------------
+sodaq_autonomo_spi1.name=SODAQ Autonomo with SPI1
+sodaq_autonomo_spi1.vid.0=0x2341
+sodaq_autonomo_spi1.pid.0=0x804d
+sodaq_autonomo_spi1.vid.1=0x2341
+sodaq_autonomo_spi1.pid.1=0x004d
+sodaq_autonomo_spi1.upload.tool=bossac
+sodaq_autonomo_spi1.upload.protocol=sam-ba
+sodaq_autonomo_spi1.upload.maximum_size=262144
+sodaq_autonomo_spi1.upload.use_1200bps_touch=true
+sodaq_autonomo_spi1.upload.wait_for_upload_port=true
+sodaq_autonomo_spi1.upload.native_usb=true
+sodaq_autonomo_spi1.build.mcu=cortex-m0plus
+sodaq_autonomo_spi1.build.f_cpu=48000000L
+sodaq_autonomo_spi1.build.usb_product="SODAQ Autonomo"
+sodaq_autonomo_spi1.build.usb_manufacturer="SODAQ"
+sodaq_autonomo_spi1.build.board=SODAQ_AUTONOMO
+sodaq_autonomo_spi1.build.core=arduino
+sodaq_autonomo_spi1.build.extra_flags=-D__SAMD21J18A__ {build.usb_flags} -DENABLE_SPI1
+sodaq_autonomo_spi1.build.ldscript=linker_scripts/gcc/flash_with_bootloader.ld
+sodaq_autonomo_spi1.build.openocdscript=openocd_scripts/sodaq_autonomo.cfg
+sodaq_autonomo_spi1.build.variant=sodaq_autonomo
+sodaq_autonomo_spi1.build.variant_system_lib=
+sodaq_autonomo_spi1.build.vid=0x2341
+sodaq_autonomo_spi1.build.pid=0x804d
+
 # SODAQ/WDT
 # ---------------------------------------
 sodaq_wdt.name=SODAQ WDT

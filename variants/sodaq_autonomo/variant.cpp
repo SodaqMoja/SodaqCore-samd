@@ -114,6 +114,12 @@ const PinDescription g_APinDescription[]=
   // 51..52 - Serial3 (alternative use for D12/D13)
   { PORTA, 17, PIO_SERCOM,     PIN_ATTR_DIGITAL,                                  No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_1  }, // RX, SERCOM1/PAD[1]
   { PORTA, 18, PIO_SERCOM,     PIN_ATTR_DIGITAL,                                  No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_2  }, // TX, SERCOM1/PAD[2]
+
+  // 53..56 - SPI1 (alternative use for D5..D8)
+  { PORTB, 12, PIO_SERCOM,     PIN_ATTR_DIGITAL,                                  No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_12 }, // MISO1: SERCOM4/PAD[0]
+  { PORTB, 13, PIO_SERCOM,     PIN_ATTR_DIGITAL,                                  No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_13 }, // SS1: SERCOM4/PAD[1]},
+  { PORTB, 14, PIO_SERCOM,     PIN_ATTR_DIGITAL,                                  No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_14 }, // MOSI1: SERCOM4/PAD[2]
+  { PORTB, 15, PIO_SERCOM,     PIN_ATTR_DIGITAL,                                  No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_15 }, // SCK1: SERCOM4/PAD[3]
 };
 
 const void* g_apTCInstances[TCC_INST_NUM+TC_INST_NUM]={ TCC0, TCC1, TCC2, TC3, TC4, TC5, TC6, TC7 } ;
@@ -123,7 +129,7 @@ SERCOM sercom0( SERCOM0 ) ;	// Serial
 SERCOM sercom1( SERCOM1 ) ;	// ?? Serial3
 SERCOM sercom2( SERCOM2 ) ;	// I2C
 SERCOM sercom3( SERCOM3 ) ;	// SPI
-SERCOM sercom4( SERCOM4 ) ;	// ?? Serial2
+SERCOM sercom4( SERCOM4 ) ;	// ?? Serial2, SPI1
 SERCOM sercom5( SERCOM5 ) ;	// Serial1
 
 Uart Serial( &sercom0, PIN_SERIAL_RX, PIN_SERIAL_TX, PAD_SERIAL_RX, PAD_SERIAL_TX ) ;
