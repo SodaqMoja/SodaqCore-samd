@@ -16,8 +16,8 @@
   Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
-#ifndef _VARIANT_SODAQ_LORAONE_
-#define _VARIANT_SODAQ_LORAONE_
+#ifndef _VARIANT_SODAQ_LORAONE_BETA_
+#define _VARIANT_SODAQ_LORAONE_BETA_
 
 // The definitions here needs a SAMD core >=1.6.3
 #define ARDUINO_SAMD_VARIANT_COMPLIANCE 10603
@@ -233,4 +233,4 @@ extern Uart Serial1;
 #define SERIAL_PORT_HARDWARE1       Serial1
 #define SERIAL_PORT_HARDWARE_OPEN1  Serial1
 
-#endif /* _VARIANT_SODAQ_LORAONE_ */
+#endif /* _VARIANT_SODAQ_LORAONE_BETA_ */
