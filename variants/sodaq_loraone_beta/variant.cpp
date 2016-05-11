@@ -83,7 +83,7 @@ const PinDescription g_APinDescription[]=
   { PORTA, 13, PIO_SERCOM,     (PIN_ATTR_DIGITAL),                                 No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_13   }, // SERIAL1_RX
   { PORTA, 12, PIO_SERCOM,     (PIN_ATTR_DIGITAL),                                 No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_12   }, // SERIAL1_TX
 
-  // 46..49 SPI (This might be removed)
+  // 46..49 SPI 
   { PORTA, 8,  PIO_SERCOM,     (PIN_ATTR_DIGITAL),                                 No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_NMI  }, // SPI_MISO
   { PORTA, 9,  PIO_SERCOM,     (PIN_ATTR_DIGITAL),                                 No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_9    }, // SPI_SS
   { PORTA, 10, PIO_SERCOM,     (PIN_ATTR_DIGITAL),                                 No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_10   }, // SPI_MOSI
@@ -91,7 +91,11 @@ const PinDescription g_APinDescription[]=
 
   // 50..51 I2C for GPS & Accelerometer
   { PORTA, 22, PIO_SERCOM,     (PIN_ATTR_DIGITAL),                                 No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_6    }, // I2C_SDA
-  { PORTA, 23, PIO_SERCOM,     (PIN_ATTR_DIGITAL),                                 No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_7    }  // I2C_SCL
+  { PORTA, 23, PIO_SERCOM,     (PIN_ATTR_DIGITAL),                                 No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_7    }, // I2C_SCL
+
+   // 52..53 I2C1 for exernal devices
+  { PORTB, 8,  PIO_SERCOM_ALT, (PIN_ATTR_DIGITAL),                                 No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_8    }, // I2C1_SDA
+  { PORTB, 9,  PIO_SERCOM_ALT, (PIN_ATTR_DIGITAL),                                 No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_9    }  // I2C1_SCL
 } ;
 
 const void* g_apTCInstances[TCC_INST_NUM+TC_INST_NUM]={ TCC0, TCC1, TCC2, TC3, TC4, TC5 } ;

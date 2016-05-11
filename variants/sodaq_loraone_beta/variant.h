@@ -53,7 +53,7 @@ extern "C"
  *----------------------------------------------------------------------------*/
 
 // Number of pins defined in PinDescription array
-#define PINS_COUNT           (52u)
+#define PINS_COUNT           (54u)
 #define NUM_DIGITAL_PINS     (14u)	// Without the "other" Digital Pins
 #define NUM_ANALOG_INPUTS    (14u)	// Without the "other" Analog Pins
 #define NUM_ANALOG_OUTPUTS   (1u)
@@ -169,12 +169,17 @@ static const uint8_t SCK  = PIN_SPI_SCK ;
 /*
  * Wire Interfaces
  */
-#define WIRE_INTERFACES_COUNT 1
+#define WIRE_INTERFACES_COUNT 2
 
 #define PIN_WIRE_SDA         (50u)
 #define PIN_WIRE_SCL         (51u)
 #define PERIPH_WIRE          sercom3
 #define WIRE_IT_HANDLER      SERCOM3_Handler
+
+#define PIN_WIRE1_SDA         (52u)
+#define PIN_WIRE1_SCL         (53u)
+#define PERIPH_WIRE1          sercom4
+#define WIRE1_IT_HANDLER      SERCOM4_Handler
 
 /*
  * USB
