@@ -178,8 +178,8 @@ static const uint8_t SCK  = PIN_SPI_SCK ;
 
 #define PIN_WIRE1_SDA         (52u)
 #define PIN_WIRE1_SCL         (53u)
-#define PERIPH_WIRE1          sercom0
-#define WIRE1_IT_HANDLER      SERCOM0_Handler
+#define PERIPH_WIRE1          sercom2
+#define WIRE1_IT_HANDLER      SERCOM2_Handler
 
 /*
  * USB
