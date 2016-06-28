@@ -216,3 +216,32 @@ sodaq_loraone_beta.build.vid=0x2341
 sodaq_loraone_beta.build.pid=0x804d
 sodaq_loraone_beta.bootloader.tool=openocd
 sodaq_loraone_beta.bootloader.file=zero/samd21_sam_ba.bin
+
+# SODAQ ONE
+# ---------------------------------------
+sodaq_one.name=SODAQ ONE
+sodaq_one.vid.0=0x2341
+sodaq_one.pid.0=0x804d
+sodaq_one.vid.1=0x2341
+sodaq_one.pid.1=0x004d
+sodaq_one.upload.tool=bossac
+sodaq_one.upload.protocol=sam-ba
+sodaq_one.upload.maximum_size=262144
+sodaq_one.upload.use_1200bps_touch=true
+sodaq_one.upload.wait_for_upload_port=true
+sodaq_one.upload.native_usb=true
+sodaq_one.build.mcu=cortex-m0plus
+sodaq_one.build.f_cpu=48000000L
+sodaq_one.build.usb_product="SODAQ ONE"
+sodaq_one.build.usb_manufacturer="SODAQ"
+sodaq_one.build.board=SODAQ_ONE
+sodaq_one.build.core=arduino
+sodaq_one.build.extra_flags=-D__SAMD21G18A__ {build.usb_flags}
+sodaq_one.build.ldscript=linker_scripts/gcc/flash_with_bootloader.ld
+sodaq_one.build.openocdscript=openocd_scripts/sodaq_one.cfg
+sodaq_one.build.variant=sodaq_one
+sodaq_one.build.variant_system_lib=
+sodaq_one.build.vid=0x2341
+sodaq_one.build.pid=0x804d
+sodaq_one.bootloader.tool=openocd
+sodaq_one.bootloader.file=zero/samd21_sam_ba.bin
