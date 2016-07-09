@@ -53,9 +53,9 @@ extern "C"
  *----------------------------------------------------------------------------*/
 
 // Number of pins defined in PinDescription array
-#define PINS_COUNT           (52u)
-#define NUM_DIGITAL_PINS     (14u)	// Without the "other" Digital Pins
-#define NUM_ANALOG_INPUTS    (14u)	// Without the "other" Analog Pins
+#define PINS_COUNT           (49u)
+#define NUM_DIGITAL_PINS     (12u)	// Without the "other" Digital Pins
+#define NUM_ANALOG_INPUTS    (12u)	// Without the "other" Analog Pins
 #define NUM_ANALOG_OUTPUTS   (1u)
 
 #define digitalPinToPort(P)        ( &(PORT->Group[g_APinDescription[P].ulPort]) )
@@ -79,14 +79,14 @@ extern "C"
 #define digitalPinToInterrupt(P)   ( g_APinDescription[P].ulExtInt )
 
 // LEDs
-#define PIN_LED_RED          (14u)
-#define PIN_LED_GREEN        (15u)
-#define PIN_LED_BLUE         (16u)
+#define PIN_LED_RED          (12u)
+#define PIN_LED_GREEN        (13u)
+#define PIN_LED_BLUE         (14u)
 
 /*
  * Analog pins
  */
-#define PIN_A0               (24u)
+#define PIN_A0               (22u)
 #define PIN_A1               (PIN_A0 + 1)
 #define PIN_A2               (PIN_A0 + 2)
 #define PIN_A3               (PIN_A0 + 3)
@@ -113,22 +113,20 @@ static const uint8_t A8  = PIN_A8 ;
 static const uint8_t A9  = PIN_A9 ;
 static const uint8_t A10 = PIN_A10 ;
 static const uint8_t A11 = PIN_A11 ;
-static const uint8_t A12 = PIN_A12 ;
-static const uint8_t A13 = PIN_A13 ;
 #define ADC_RESOLUTION      12
 
 /*
  * Serial interfaces
  */
 // Serial
-#define PIN_SERIAL_RX       (42u)
-#define PIN_SERIAL_TX       (43u)
+#define PIN_SERIAL_RX       (39u)
+#define PIN_SERIAL_TX       (40u)
 #define PAD_SERIAL_TX       (UART_TX_PAD_0)
 #define PAD_SERIAL_RX       (SERCOM_RX_PAD_1)
 
 // Serial1
-#define PIN_SERIAL1_RX      (44u)
-#define PIN_SERIAL1_TX      (45u)
+#define PIN_SERIAL1_RX      (41u)
+#define PIN_SERIAL1_TX      (42u)
 #define PAD_SERIAL1_TX      (UART_TX_PAD_0)
 #define PAD_SERIAL1_RX      (SERCOM_RX_PAD_1)
 
@@ -136,27 +134,27 @@ static const uint8_t A13 = PIN_A13 ;
 static const uint8_t LED_RED       = PIN_LED_RED;
 static const uint8_t LED_GREEN     = PIN_LED_GREEN;
 static const uint8_t LED_BLUE      = PIN_LED_BLUE;
-static const uint8_t GPS_TIMEPULSE = (17u);
-static const uint8_t GPS_ENABLE    = (18u);
-static const uint8_t BUTTON        = (19u);
-static const uint8_t ACCEL_INT1    = (20u);
-static const uint8_t ACCEL_INT2    = (21u);
-static const uint8_t ENABLE_PIN_IO = (22u);
-static const uint8_t SWITCH_SENSE  = (23u);
+static const uint8_t GPS_TIMEPULSE = (15u);
+static const uint8_t GPS_ENABLE    = (16u);
+static const uint8_t BUTTON        = (17u);
+static const uint8_t ACCEL_INT1    = (18u);
+static const uint8_t ACCEL_INT2    = (19u);
+static const uint8_t ENABLE_PIN_IO = (20u);
+static const uint8_t SWITCH_SENSE  = (21u);
 
 // Other Analog Pins
 static const uint8_t DAC0          = PIN_A0; // or (24u) implications for cores/arduino/wiring_analog.c analogWrite()
-static const uint8_t AREF          = (39u);
+static const uint8_t AREF          = (35u);
 
 /*
  * SPI Interfaces
  */
 #define SPI_INTERFACES_COUNT 1
 
-#define PIN_SPI_MISO         (46u)
-#define PIN_SPI_SS           (47u)
-#define PIN_SPI_MOSI         (48u)
-#define PIN_SPI_SCK          (49u)
+#define PIN_SPI_MISO         (43u)
+#define PIN_SPI_SS           (44u)
+#define PIN_SPI_MOSI         (45u)
+#define PIN_SPI_SCK          (46u)
 #define PERIPH_SPI           sercom0
 #define PAD_SPI_TX           SPI_PAD_2_SCK_3
 #define PAD_SPI_RX           SERCOM_RX_PAD_0
@@ -171,16 +169,16 @@ static const uint8_t SCK  = PIN_SPI_SCK ;
  */
 #define WIRE_INTERFACES_COUNT 1
 
-#define PIN_WIRE_SDA         (50u)
-#define PIN_WIRE_SCL         (51u)
+#define PIN_WIRE_SDA         (47u)
+#define PIN_WIRE_SCL         (48u)
 #define PERIPH_WIRE          sercom3
 #define WIRE_IT_HANDLER      SERCOM3_Handler
 
 /*
  * USB
  */
-#define PIN_USB_DM          (40ul)
-#define PIN_USB_DP          (41ul)
+#define PIN_USB_DM          (38ul)
+#define PIN_USB_DP          (39ul)
 
 #ifdef __cplusplus
 }
