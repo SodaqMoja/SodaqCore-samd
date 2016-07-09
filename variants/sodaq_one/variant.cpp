@@ -80,8 +80,8 @@ const PinDescription g_APinDescription[]=
   { PORTB, 2,  PIO_SERCOM_ALT, (PIN_ATTR_DIGITAL),                                 No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_2    }, // SERIAL_TX
 
   // 44..45 Serial1
-  { PORTA, 13, PIO_SERCOM_ALT, (PIN_ATTR_DIGITAL),                                 No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_13   }, // SERIAL1_RX
-  { PORTA, 12, PIO_SERCOM_ALT, (PIN_ATTR_DIGITAL),                                 No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_12   }, // SERIAL1_TX
+  { PORTA, 13, PIO_SERCOM,     (PIN_ATTR_DIGITAL),                                 No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_13   }, // SERIAL1_RX
+  { PORTA, 12, PIO_SERCOM,     (PIN_ATTR_DIGITAL),                                 No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_12   }, // SERIAL1_TX
 
   // 46..49 SPI 
   { PORTA, 4,  PIO_SERCOM_ALT, (PIN_ATTR_DIGITAL),                                 No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_4    }, // SPI_MISO
@@ -105,9 +105,9 @@ SERCOM sercom4( SERCOM4 ) ;
 SERCOM sercom5( SERCOM5 ) ;	// Serial
 
 Uart Serial(&sercom5, PIN_SERIAL_RX, PIN_SERIAL_TX, PAD_SERIAL_RX, PAD_SERIAL_TX ) ;
-Uart Serial1(&sercom4, PIN_SERIAL1_RX, PIN_SERIAL1_TX, PAD_SERIAL1_RX, PAD_SERIAL1_TX);
+Uart Serial1(&sercom2, PIN_SERIAL1_RX, PIN_SERIAL1_TX, PAD_SERIAL1_RX, PAD_SERIAL1_TX);
 
-void SERCOM4_Handler()
+void SERCOM2_Handler()
 {
   Serial1.IrqHandler();
 }
