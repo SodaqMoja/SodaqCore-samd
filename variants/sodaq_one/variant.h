@@ -145,6 +145,7 @@ static const uint8_t SWITCH_SENSE  = (21u);
 // Other Analog Pins
 static const uint8_t DAC0          = PIN_A0; // or (24u) implications for cores/arduino/wiring_analog.c analogWrite()
 static const uint8_t AREF          = (35u);
+static const uint8_t BAT_VOLT      = (36u);
 
 /*
  * SPI Interfaces
