@@ -146,11 +146,22 @@ static const uint8_t A13 = PIN_A13 ;
 
 // Other Bee socket pins
 // MCU_RTS <-> BEECTS
+#ifdef AUTONOMO_BETA
+static const uint8_t MCU_RTS = (39u);
+static const uint8_t BEECTS = (39u);
+#else
 static const uint8_t MCU_RTS = (38u);
 static const uint8_t BEECTS = (38u);
+#endif
+
 // MCU_CTS <-> BEERTS
+#ifdef AUTONOMO_BETA
+static const uint8_t MCU_CTS = (38u);
+static const uint8_t BEERTS = (38u);
+#else
 static const uint8_t MCU_CTS = (39u);
 static const uint8_t BEERTS = (39u);
+#endif
 
 static const uint8_t BEEDTR = PIN_A13;
 static const uint8_t RI_AS = (18u);
