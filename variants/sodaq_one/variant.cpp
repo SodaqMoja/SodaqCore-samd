@@ -32,8 +32,8 @@ const PinDescription g_APinDescription[]=
   { PORTA, 7,  PIO_TIMER,      (PIN_ATTR_DIGITAL | PIN_ATTR_PWM | PIN_ATTR_TIMER), No_ADC_Channel, PWM1_CH1,   TCC1_CH1,     EXTERNAL_INT_7    }, // TCC1/WO[1]
   { PORTA, 8,  PIO_TIMER,      (PIN_ATTR_DIGITAL | PIN_ATTR_PWM | PIN_ATTR_TIMER), No_ADC_Channel, PWM0_CH0,   TCC0_CH0,     EXTERNAL_INT_NMI  }, // TCC0/WO[0]
   { PORTA, 9,  PIO_TIMER,      (PIN_ATTR_DIGITAL | PIN_ATTR_PWM | PIN_ATTR_TIMER), No_ADC_Channel, PWM0_CH1,   TCC0_CH1,     EXTERNAL_INT_9    }, // TCC0/WO[1]
-  { PORTA, 10, PIO_TIMER_ALT,  (PIN_ATTR_DIGITAL | PIN_ATTR_PWM | PIN_ATTR_TIMER), No_ADC_Channel, PWM0_CH2,   TCC0_CH2,     EXTERNAL_INT_10   }, // TCC0/WO[2]
-  { PORTA, 11, PIO_TIMER_ALT,  (PIN_ATTR_DIGITAL | PIN_ATTR_PWM | PIN_ATTR_TIMER), No_ADC_Channel, PWM0_CH3,   TCC0_CH3,     EXTERNAL_INT_11   }, // TCC0/WO[3]
+  { PORTA, 10, PIO_TIMER_ALT,  (PIN_ATTR_DIGITAL | PIN_ATTR_PWM | PIN_ATTR_TIMER_ALT), No_ADC_Channel, PWM0_CH2,   TCC0_CH2,     EXTERNAL_INT_10   }, // TCC0/WO[2]
+  { PORTA, 11, PIO_TIMER_ALT,  (PIN_ATTR_DIGITAL | PIN_ATTR_PWM | PIN_ATTR_TIMER_ALT), No_ADC_Channel, PWM0_CH3,   TCC0_CH3,     EXTERNAL_INT_11   }, // TCC0/WO[3]
   { PORTB, 2,  PIO_DIGITAL,    (PIN_ATTR_DIGITAL),                                 No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_2    },
   { PORTB, 3,  PIO_DIGITAL,    (PIN_ATTR_DIGITAL),                                 No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_3    },
 
@@ -43,11 +43,11 @@ const PinDescription g_APinDescription[]=
   { PORTB, 11, PIO_INPUT,      (PIN_ATTR_DIGITAL | PIN_ATTR_PWM | PIN_ATTR_TIMER), No_ADC_Channel, PWM5_CH1,   TC5_CH1,      EXTERNAL_INT_NONE }, // LED_BLUE
   { PORTA, 14, PIO_INPUT,      (PIN_ATTR_DIGITAL),                                 No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_14   }, // GPS_TIMEPULSE
   { PORTA, 18, PIO_OUTPUT,     (PIN_ATTR_DIGITAL),                                 No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_NONE }, // GPS_ENABLE
-  { PORTA, 19, PIO_INPUT,      (PIN_ATTR_DIGITAL),                                 No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_3    }, // BUTTON
+  { PORTA, 16, PIO_INPUT,      (PIN_ATTR_DIGITAL),                                 No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_0    }, // BUTTON
   { PORTA, 21, PIO_INPUT,      (PIN_ATTR_DIGITAL),                                 No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_4    }, // ACCEL_INT1
   { PORTA, 20, PIO_INPUT,      (PIN_ATTR_DIGITAL),                                 No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_5    }, // ACCEL_INT2
   { PORTB, 22, PIO_OUTPUT,     (PIN_ATTR_DIGITAL),                                 No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_NONE }, // ENABLE_PIN_IO
-  { PORTA, 28, PIO_INPUT,      (PIN_ATTR_DIGITAL),                                 No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_8    }, // SWITCH_SENSE
+  { PORTA, 17, PIO_INPUT,      (PIN_ATTR_DIGITAL),                                 No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_1    }, // SWITCH_SENSE
 
   // 22..33 Main IO Pins Analog Properties
   { PORTA, 2,  PIO_ANALOG,     (PIN_ATTR_ANALOG),                                  ADC_Channel0,   NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_2    },
