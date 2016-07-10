@@ -129,7 +129,11 @@ static const uint8_t A13 = PIN_A13 ;
 // Serial1
 #define PIN_SERIAL1_RX       (37ul)
 #define PIN_SERIAL1_TX       (36ul)
+#ifdef AUTONOMO_BETA
+#define PAD_SERIAL1_TX       (UART_TX_PAD_0)
+#else
 #define PAD_SERIAL1_TX       (UART_TX_RTS_CTS_PAD_0_2_3)
+#endif
 #define PAD_SERIAL1_RX       (SERCOM_RX_PAD_1)
 
 // Serial2
