@@ -90,27 +90,27 @@ extern "C"
 #define PIN_A1               (PIN_A0 + 1)
 #define PIN_A2               (PIN_A0 + 2)
 #define PIN_A3               (PIN_A0 + 3)
-#define PIN_A4               (PIN_A0 + 4)
-#define PIN_A5               (PIN_A0 + 5)
-#define PIN_A6               (PIN_A0 + 6)
-#define PIN_A7               (PIN_A0 + 7)
-#define PIN_A8               (PIN_A0 + 8)
-#define PIN_A9               (PIN_A0 + 9)
-#define PIN_A10              (PIN_A0 + 10)
-#define PIN_A11              (PIN_A0 + 11)
+#define PIN_A6               (PIN_A0 + 4)
+#define PIN_A7               (PIN_A0 + 5)
+#define PIN_A8               (PIN_A0 + 6)
+#define PIN_A9               (PIN_A0 + 7)
+#define PIN_A10              (PIN_A0 + 8)
+#define PIN_A11              (PIN_A0 + 9)
+#define PIN_A12              (PIN_A0 + 10)
+#define PIN_A13              (PIN_A0 + 11)
 
 static const uint8_t A0  = PIN_A0 ;
 static const uint8_t A1  = PIN_A1 ;
 static const uint8_t A2  = PIN_A2 ;
 static const uint8_t A3  = PIN_A3 ;
-static const uint8_t A4  = PIN_A4 ;
-static const uint8_t A5  = PIN_A5 ;
 static const uint8_t A6  = PIN_A6 ;
 static const uint8_t A7  = PIN_A7 ;
 static const uint8_t A8  = PIN_A8 ;
 static const uint8_t A9  = PIN_A9 ;
 static const uint8_t A10 = PIN_A10;
 static const uint8_t A11 = PIN_A11;
+static const uint8_t A12 = PIN_A12;
+static const uint8_t A13 = PIN_A13;
 #define ADC_RESOLUTION      12
 
 /*
