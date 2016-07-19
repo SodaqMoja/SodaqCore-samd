@@ -79,9 +79,9 @@ extern "C"
 #define digitalPinToInterrupt(P)   ( g_APinDescription[P].ulExtInt )
 
 // LEDs
-#define PIN_LED_RED          (12u)
-#define PIN_LED_GREEN        (13u)
-#define PIN_LED_BLUE         (14u)
+#define PIN_LED_RED          (14u)
+#define PIN_LED_GREEN        (15u)
+#define PIN_LED_BLUE         (16u)
 
 /*
  * Analog pins
@@ -132,11 +132,11 @@ static const uint8_t A13 = PIN_A13;
 static const uint8_t LED_RED       = PIN_LED_RED;
 static const uint8_t LED_GREEN     = PIN_LED_GREEN;
 static const uint8_t LED_BLUE      = PIN_LED_BLUE;
-static const uint8_t GPS_TIMEPULSE = (15u);
-static const uint8_t GPS_ENABLE    = (16u);
-static const uint8_t BUTTON        = (17u);
-static const uint8_t ACCEL_INT1    = (18u);
-static const uint8_t ACCEL_INT2    = (19u);
+static const uint8_t GPS_TIMEPULSE = (17u);
+static const uint8_t GPS_ENABLE    = (18u);
+static const uint8_t BUTTON        = (19u);
+static const uint8_t ACCEL_INT1    = (4u);
+static const uint8_t ACCEL_INT2    = (5u);
 static const uint8_t ENABLE_PIN_IO = (20u);
 static const uint8_t SWITCH_SENSE  = (21u);
 
