@@ -23,15 +23,17 @@
  */
 const PinDescription g_APinDescription[]=
 {
-  // 0..11 Main IO Pins Digital Properties
+  // 0..3 Main IO Pins (D0-D3) Digital Properties
   { PORTA, 2,  PIO_DIGITAL,    (PIN_ATTR_DIGITAL),                                     No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_2    },
   { PORTA, 3,  PIO_DIGITAL,    (PIN_ATTR_DIGITAL),                                     No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_3    },
   { PORTB, 8,  PIO_TIMER,      (PIN_ATTR_DIGITAL | PIN_ATTR_PWM | PIN_ATTR_TIMER),     No_ADC_Channel, PWM4_CH0,   TC4_CH0,      EXTERNAL_INT_8    }, // TC4/WO[0]
   { PORTB, 9,  PIO_TIMER,      (PIN_ATTR_DIGITAL | PIN_ATTR_PWM | PIN_ATTR_TIMER),     No_ADC_Channel, PWM4_CH1,   TC4_CH1,      EXTERNAL_INT_9    }, // TC4/WO[1]
 
+  // 4..5 Other Digital Pins
   { PORTA, 21, PIO_INPUT,      (PIN_ATTR_DIGITAL),                                     No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_4    }, // ACCEL_INT1
   { PORTA, 20, PIO_INPUT,      (PIN_ATTR_DIGITAL),                                     No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_5    }, // ACCEL_INT2
 
+  // 6..13 Main IO Pins (D6-D13) Digital Properties
   { PORTA, 6,  PIO_TIMER,      (PIN_ATTR_DIGITAL | PIN_ATTR_PWM | PIN_ATTR_TIMER),     No_ADC_Channel, PWM1_CH0,   TCC1_CH0,     EXTERNAL_INT_6    }, // TCC1/WO[0]
   { PORTA, 7,  PIO_TIMER,      (PIN_ATTR_DIGITAL | PIN_ATTR_PWM | PIN_ATTR_TIMER),     No_ADC_Channel, PWM1_CH1,   TCC1_CH1,     EXTERNAL_INT_7    }, // TCC1/WO[1]
   { PORTA, 8,  PIO_TIMER,      (PIN_ATTR_DIGITAL | PIN_ATTR_PWM | PIN_ATTR_TIMER),     No_ADC_Channel, PWM0_CH0,   TCC0_CH0,     EXTERNAL_INT_NMI  }, // TCC0/WO[0]
