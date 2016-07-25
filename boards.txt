@@ -41,7 +41,7 @@ sodaq_autonomo.build.variant_system_lib=
 sodaq_autonomo.build.vid=0x2341
 sodaq_autonomo.build.pid=0x804d
 sodaq_autonomo.bootloader.tool=openocd
-sodaq_autonomo.bootloader.file=zero/samd21_sam_ba.bin
+sodaq_autonomo.bootloader.file=autonomo/samd21_sam_ba.bin
 
 # SODAQ/Autonomo Beta
 # ---------------------------------------
@@ -70,7 +70,7 @@ sodaq_autonomo_beta.build.variant_system_lib=
 sodaq_autonomo_beta.build.vid=0x2341
 sodaq_autonomo_beta.build.pid=0x804d
 sodaq_autonomo_beta.bootloader.tool=openocd
-sodaq_autonomo_beta.bootloader.file=zero/samd21_sam_ba.bin
+sodaq_autonomo_beta.bootloader.file=autonomo/samd21_sam_ba.bin
 
 # SODAQ/Autonomo with enabled Serial2 (D6/D7)
 # ---------------------------------------
@@ -99,7 +99,7 @@ sodaq_autonomo_serial2.build.variant_system_lib=
 sodaq_autonomo_serial2.build.vid=0x2341
 sodaq_autonomo_serial2.build.pid=0x804d
 sodaq_autonomo_serial2.bootloader.tool=openocd
-sodaq_autonomo_serial2.bootloader.file=zero/samd21_sam_ba.bin
+sodaq_autonomo_serial2.bootloader.file=autonomo/samd21_sam_ba.bin
 
 # SODAQ/Autonomo with enabled Serial3 (D12/D13)
 # ---------------------------------------
@@ -128,7 +128,7 @@ sodaq_autonomo_serial3.build.variant_system_lib=
 sodaq_autonomo_serial3.build.vid=0x2341
 sodaq_autonomo_serial3.build.pid=0x804d
 sodaq_autonomo_serial3.bootloader.tool=openocd
-sodaq_autonomo_serial3.bootloader.file=zero/samd21_sam_ba.bin
+sodaq_autonomo_serial3.bootloader.file=autonomo/samd21_sam_ba.bin
 
 # SODAQ/Autonomo with enabled Serial2 (D6/D7) and Serial3 (D12/D13)
 # ---------------------------------------
@@ -157,7 +157,7 @@ sodaq_autonomo_serial23.build.variant_system_lib=
 sodaq_autonomo_serial23.build.vid=0x2341
 sodaq_autonomo_serial23.build.pid=0x804d
 sodaq_autonomo_serial23.bootloader.tool=openocd
-sodaq_autonomo_serial23.bootloader.file=zero/samd21_sam_ba.bin
+sodaq_autonomo_serial23.bootloader.file=autonomo/samd21_sam_ba.bin
 
 # SODAQ/Autonomo with enabled SPI1 (D5..D8)
 # ---------------------------------------
@@ -186,7 +186,7 @@ sodaq_autonomo_spi1.build.variant_system_lib=
 sodaq_autonomo_spi1.build.vid=0x2341
 sodaq_autonomo_spi1.build.pid=0x804d
 sodaq_autonomo_spi1.bootloader.tool=openocd
-sodaq_autonomo_spi1.bootloader.file=zero/samd21_sam_ba.bin
+sodaq_autonomo_spi1.bootloader.file=autonomo/samd21_sam_ba.bin
 
 # SODAQ/WDT
 # ---------------------------------------
@@ -215,7 +215,7 @@ sodaq_wdt.build.variant_system_lib=
 sodaq_wdt.build.vid=0x2341
 sodaq_wdt.build.pid=0x804d
 sodaq_wdt.bootloader.tool=openocd
-sodaq_wdt.bootloader.file=zero/samd21_sam_ba.bin
+sodaq_wdt.bootloader.file=autonomo/samd21_sam_ba.bin
 
 # SODAQ ONE Beta
 # ---------------------------------------
