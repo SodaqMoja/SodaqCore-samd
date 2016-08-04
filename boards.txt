@@ -14,6 +14,35 @@
 # License along with this library; if not, write to the Free Software
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
+# SODAQ/ExpLoRer
+# ---------------------------------------
+sodaq_explorer.name=SODAQ ExpLoRer
+sodaq_explorer.vid.0=0x2341
+sodaq_explorer.pid.0=0x804d
+sodaq_explorer.vid.1=0x2341
+sodaq_explorer.pid.1=0x004d
+sodaq_explorer.upload.tool=bossac
+sodaq_explorer.upload.protocol=sam-ba
+sodaq_explorer.upload.maximum_size=262144
+sodaq_explorer.upload.use_1200bps_touch=true
+sodaq_explorer.upload.wait_for_upload_port=true
+sodaq_explorer.upload.native_usb=true
+sodaq_explorer.build.mcu=cortex-m0plus
+sodaq_explorer.build.f_cpu=48000000L
+sodaq_explorer.build.usb_product="SODAQ ExpLoRer"
+sodaq_explorer.build.usb_manufacturer="SODAQ"
+sodaq_explorer.build.board=SODAQ_ExpLoRer
+sodaq_explorer.build.core=arduino
+sodaq_explorer.build.extra_flags=-D__SAMD21J18A__ {build.usb_flags}
+sodaq_explorer.build.ldscript=linker_scripts/gcc/flash_with_bootloader.ld
+sodaq_explorer.build.openocdscript=openocd_scripts/sodaq_ExpLoRer.cfg
+sodaq_explorer.build.variant=sodaq_ExpLoRer
+sodaq_explorer.build.variant_system_lib=
+sodaq_explorer.build.vid=0x2341
+sodaq_explorer.build.pid=0x804d
+sodaq_explorer.bootloader.tool=openocd
+sodaq_explorer.bootloader.file=autonomo/samd21_sam_ba.bin
+
 # SODAQ/Autonomo
 # ---------------------------------------
 sodaq_autonomo.name=SODAQ Autonomo
