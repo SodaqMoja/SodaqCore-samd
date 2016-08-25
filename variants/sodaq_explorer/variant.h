@@ -154,7 +154,7 @@ static const uint8_t DAC0 = 43u ; // or (35u) implications for cores/arduino/wir
 
 static const uint8_t MISO = PIN_SPI_MISO;
 static const uint8_t SS   = PIN_SPI_SS ;
-static const uint8_t SS_DFLASH  = PIN_SPI_SS ;
+static const uint8_t SS_DFLASH  = 44 ;
 static const uint8_t MOSI = PIN_SPI_MOSI ;
 static const uint8_t SCK  = PIN_SPI_SCK ;
 
