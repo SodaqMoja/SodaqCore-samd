@@ -105,6 +105,8 @@ const PinDescription g_APinDescription[]=
 
   // 43 DAC
   { PORTA,  2, PIO_ANALOG,     PIN_ATTR_ANALOG,	                                      DAC_Channel0,    NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_2   }, // DAC
+  
+  { PORTB, 16, PIO_OUTPUT,     PIN_ATTR_DIGITAL,									  No_ADC_Channel,  NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_NONE}, // FLASH CS
 };
 
 const void* g_apTCInstances[TCC_INST_NUM+TC_INST_NUM]={ TCC0, TCC1, TCC2, TC3, TC4, TC5, TC6, TC7 } ;
