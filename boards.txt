@@ -303,3 +303,32 @@ sodaq_one.build.vid=0x2341
 sodaq_one.build.pid=0x804d
 sodaq_one.bootloader.tool=openocd
 sodaq_one.bootloader.file=zero/samd21_sam_ba.bin
+
+# SODAQ ONE with ONEBase SPI 
+# ---------------------------------------
+sodaq_one_base.name=SODAQ ONE with ONEBase SPI
+sodaq_one_base.vid.0=0x2341
+sodaq_one_base.pid.0=0x804d
+sodaq_one_base.vid.1=0x2341
+sodaq_one_base.pid.1=0x004d
+sodaq_one_base.upload.tool=bossac
+sodaq_one_base.upload.protocol=sam-ba
+sodaq_one_base.upload.maximum_size=262144
+sodaq_one_base.upload.use_1200bps_touch=true
+sodaq_one_base.upload.wait_for_upload_port=true
+sodaq_one_base.upload.native_usb=true
+sodaq_one_base.build.mcu=cortex-m0plus
+sodaq_one_base.build.f_cpu=48000000L
+sodaq_one_base.build.usb_product="SODAQ ONE"
+sodaq_one_base.build.usb_manufacturer="SODAQ"
+sodaq_one_base.build.board=SODAQ_ONE
+sodaq_one_base.build.core=arduino
+sodaq_one_base.build.extra_flags=-D__SAMD21G18A__ {build.usb_flags} -DENABLE_BASE_SPI
+sodaq_one_base.build.ldscript=linker_scripts/gcc/flash_with_bootloader.ld
+sodaq_one_base.build.openocdscript=openocd_scripts/sodaq_one.cfg
+sodaq_one_base.build.variant=sodaq_one
+sodaq_one_base.build.variant_system_lib=
+sodaq_one_base.build.vid=0x2341
+sodaq_one_base.build.pid=0x804d
+sodaq_one_base.bootloader.tool=openocd
+sodaq_one_base.bootloader.file=zero/samd21_sam_ba.bin
