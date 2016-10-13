@@ -79,12 +79,12 @@ extern "C"
 #define digitalPinToInterrupt(P)   ( g_APinDescription[P].ulExtInt )
 
 // LEDs
-#define LED_RED			    (16u)
-#define LED_GREEN			(17u)
-#define LED_BLUE			(18u)
+#define LED_RED             (16u)
+#define LED_GREEN           (17u)
+#define LED_BLUE            (18u)
 
 //BLUETOOTH_WAKE
-#define BLUETOOTH_WAKE		(19u)
+#define BLUETOOTH_WAKE      (19u)
 
 /*
  * Analog pins
@@ -99,7 +99,7 @@ extern "C"
 #define PIN_A7               (PIN_A0 + 7)
 #define PIN_A8               (PIN_A0 + 8)
 
-#define TEMP_SENSOR			(PIN_A6)
+#define TEMP_SENSOR         (PIN_A6)
 
 
 static const uint8_t A0  = PIN_A0 ;
@@ -154,7 +154,7 @@ static const uint8_t DAC0 = 43u ; // or (35u) implications for cores/arduino/wir
 
 static const uint8_t MISO = PIN_SPI_MISO;
 static const uint8_t SS   = PIN_SPI_SS ;
-static const uint8_t SS_DFLASH  = PIN_SPI_SS ;
+static const uint8_t SS_DFLASH  = 44 ;
 static const uint8_t MOSI = PIN_SPI_MOSI ;
 static const uint8_t SCK  = PIN_SPI_SCK ;
 
@@ -232,16 +232,15 @@ extern Uart Serial2;
 #define SERIAL_PORT_HARDWARE2       Serial2
 #define SERIAL_PORT_HARDWARE_OPEN2  Serial2
 
-#define PERIPH_WIRE					sercom1
-#define WIRE_IT_HANDLER				SERCOM1_Handler
+#define PERIPH_WIRE                 sercom1
+#define WIRE_IT_HANDLER             SERCOM1_Handler
 
-#define PERIPH_WIRE1				sercom2
-#define WIRE1_IT_HANDLER			SERCOM2_Handler
+#define PERIPH_WIRE1                sercom2
+#define WIRE1_IT_HANDLER            SERCOM2_Handler
 
-#define PERIPH_SPI					sercom3
-#define PAD_SPI_TX					SPI_PAD_2_SCK_3
-#define PAD_SPI_RX					SERCOM_RX_PAD_0
+#define PERIPH_SPI                  sercom3
+#define PAD_SPI_TX                  SPI_PAD_2_SCK_3
+#define PAD_SPI_RX                  SERCOM_RX_PAD_0
 
 
 #endif /* _VARIANT_SODAQ_EXPLORER */
-
