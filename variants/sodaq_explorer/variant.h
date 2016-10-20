@@ -85,6 +85,7 @@ extern "C"
 
 //BLUETOOTH_WAKE
 #define BLUETOOTH_WAKE      (19u)
+#define LORA_RESET          (45u)
 
 /*
  * Analog pins
