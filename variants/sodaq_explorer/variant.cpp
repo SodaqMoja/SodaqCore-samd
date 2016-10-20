@@ -106,18 +106,19 @@ const PinDescription g_APinDescription[]=
   // 43 DAC
   { PORTA,  2, PIO_ANALOG,     PIN_ATTR_ANALOG,                                       DAC_Channel0,    NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_2   }, // DAC
 
+  // 44 Flash CS
   { PORTB, 16, PIO_OUTPUT,     PIN_ATTR_DIGITAL,                                      No_ADC_Channel,  NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_NONE}, // FLASH CS
 };
 
 const void* g_apTCInstances[TCC_INST_NUM+TC_INST_NUM]={ TCC0, TCC1, TCC2, TC3, TC4, TC5, TC6, TC7 } ;
 
 // Multi-serial objects instantiation
-SERCOM sercom0( SERCOM0 ) ; // Serial
-SERCOM sercom1( SERCOM1 ) ; // ?? Serial3
-SERCOM sercom2( SERCOM2 ) ; // I2C
+SERCOM sercom0( SERCOM0 ) ; // Serial2
+SERCOM sercom1( SERCOM1 ) ; // I2C
+SERCOM sercom2( SERCOM2 ) ; // I2C1
 SERCOM sercom3( SERCOM3 ) ; // SPI
-SERCOM sercom4( SERCOM4 ) ; // ?? Serial2, SPI1
-SERCOM sercom5( SERCOM5 ) ; // Serial1
+SERCOM sercom4( SERCOM4 ) ; // Serial1
+SERCOM sercom5( SERCOM5 ) ; // Serial
 
 
 Uart Serial( &sercom5, PIN_SERIAL_RX, PIN_SERIAL_TX, PAD_SERIAL_RX, PAD_SERIAL_TX ) ;
