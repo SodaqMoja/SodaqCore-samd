@@ -43,7 +43,7 @@ const PinDescription g_APinDescription[]=
   { PORTB, 2,  PIO_DIGITAL,    (PIN_ATTR_DIGITAL),                                     No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_2    },
   { PORTB, 3,  PIO_DIGITAL,    (PIN_ATTR_DIGITAL),                                     No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_3    },
 
-  // 12..21 Other Digital Pins
+  // 14..21 Other Digital Pins
   { PORTA, 15, PIO_INPUT,      (PIN_ATTR_DIGITAL | PIN_ATTR_PWM | PIN_ATTR_TIMER),     No_ADC_Channel, PWM3_CH1,   TC3_CH1,      EXTERNAL_INT_NONE }, // LED_RED
   { PORTB, 10, PIO_INPUT,      (PIN_ATTR_DIGITAL | PIN_ATTR_PWM | PIN_ATTR_TIMER),     No_ADC_Channel, PWM5_CH0,   TC5_CH0,      EXTERNAL_INT_NONE }, // LED_GREEN
   { PORTB, 11, PIO_INPUT,      (PIN_ATTR_DIGITAL | PIN_ATTR_PWM | PIN_ATTR_TIMER),     No_ADC_Channel, PWM5_CH1,   TC5_CH1,      EXTERNAL_INT_NONE }, // LED_BLUE
