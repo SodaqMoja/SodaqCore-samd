@@ -95,7 +95,7 @@ const PinDescription g_APinDescription[]=
 
   // 37..40 - SPI pins (ICSP: MISO, SS, MOSI, SCK)
   { PORTA, 22, PIO_SERCOM,     PIN_ATTR_DIGITAL,                                      No_ADC_Channel,  NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_6   }, // MISO: SERCOM3/PAD[0]
-  { PORTA, 23, PIO_SERCOM,     PIN_ATTR_DIGITAL,                                      No_ADC_Channel,  NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_7   }, // SS: SERCOM3/PAD[1]},
+  { PORTA, 23, PIO_SERCOM,     PIN_ATTR_DIGITAL,                                      No_ADC_Channel,  NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_7   }, // SS: SERCOM3/PAD[1]
   { PORTA, 20, PIO_SERCOM_ALT, PIN_ATTR_DIGITAL,                                      No_ADC_Channel,  NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_4   }, // MOSI: SERCOM3/PAD[2]
   { PORTA, 21, PIO_SERCOM_ALT, PIN_ATTR_DIGITAL,                                      No_ADC_Channel,  NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_5   }, // SCK: SERCOM3/PAD[3]
 
@@ -109,9 +109,12 @@ const PinDescription g_APinDescription[]=
   // 44 Flash CS
   { PORTB, 16, PIO_OUTPUT,     PIN_ATTR_DIGITAL,                                      No_ADC_Channel,  NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_NONE}, // FLASH CS
 
-  // 45 .. 46 LoRa AND BT Reset
-  { PORTA,  7, PIO_OUTPUT,     PIN_ATTR_DIGITAL,                                      No_ADC_Channel,   NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_NONE}, // LORA RESET
-  { PORTB,  17, PIO_OUTPUT,    PIN_ATTR_DIGITAL,                                      No_ADC_Channel,   NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_NONE}  // BT RESET
+  // 45..46 LoRa, BT Reset
+  { PORTA,  7, PIO_OUTPUT,     PIN_ATTR_DIGITAL,                                      No_ADC_Channel,  NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_NONE}, // LORA RESET
+  { PORTB,  17, PIO_OUTPUT,    PIN_ATTR_DIGITAL,                                      No_ADC_Channel,  NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_NONE}, // BT RESET
+
+  // 47 Button
+  { PORTA,  14, PIO_OUTPUT,    PIN_ATTR_DIGITAL,                                      No_ADC_Channel,  NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_14  }, // BUTTON
 };
 
 const void* g_apTCInstances[TCC_INST_NUM+TC_INST_NUM]={ TCC0, TCC1, TCC2, TC3, TC4, TC5, TC6, TC7 } ;

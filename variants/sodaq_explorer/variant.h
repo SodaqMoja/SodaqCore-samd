@@ -53,7 +53,7 @@ extern "C"
  *----------------------------------------------------------------------------*/
 
 // Number of pins defined in PinDescription array
-#define PINS_COUNT           (30u)
+#define PINS_COUNT           (48u)
 #define NUM_DIGITAL_PINS     (20u)
 #define NUM_ANALOG_INPUTS    (9u)
 #define NUM_ANALOG_OUTPUTS   (1u)
@@ -85,8 +85,13 @@ extern "C"
 
 //BLUETOOTH_WAKE
 #define BLUETOOTH_WAKE      (19u)
+
+// RESET LINES
 #define LORA_RESET          (45u)
-#define BT_RESET          	(46u)
+#define BT_RESET            (46u)
+
+// BUTTON
+#define BUTTON              (47u)
 
 /*
  * Analog pins
