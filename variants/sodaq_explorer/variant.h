@@ -79,6 +79,10 @@ extern "C"
 #define digitalPinToInterrupt(P)   ( g_APinDescription[P].ulExtInt )
 
 // LEDs
+#define PIN_LED_13          (13u)
+#define PIN_LED             PIN_LED_13
+#define LED_BUILTIN         PIN_LED_13
+
 #define LED_RED             (16u)
 #define LED_GREEN           (17u)
 #define LED_BLUE            (18u)
