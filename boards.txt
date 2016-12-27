@@ -41,7 +41,7 @@ sodaq_explorer.build.variant_system_lib=
 sodaq_explorer.build.vid=0x2341
 sodaq_explorer.build.pid=0x804d
 sodaq_explorer.bootloader.tool=openocd
-sodaq_explorer.bootloader.file=autonomo/samd21_sam_ba.bin
+sodaq_explorer.bootloader.file=explorer/samd21_sam_ba_explorer.bin
 
 # SODAQ/Autonomo
 # ---------------------------------------
