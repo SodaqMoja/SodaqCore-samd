@@ -217,35 +217,6 @@ sodaq_autonomo_spi1.build.pid=0x804d
 sodaq_autonomo_spi1.bootloader.tool=openocd
 sodaq_autonomo_spi1.bootloader.file=autonomo/samd21_sam_ba.bin
 
-# SODAQ/WDT
-# ---------------------------------------
-sodaq_wdt.name=SODAQ WDT
-sodaq_wdt.vid.0=0x2341
-sodaq_wdt.pid.0=0x804d
-sodaq_wdt.vid.1=0x2341
-sodaq_wdt.pid.1=0x004d
-sodaq_wdt.upload.tool=bossac
-sodaq_wdt.upload.protocol=sam-ba
-sodaq_wdt.upload.maximum_size=262144
-sodaq_wdt.upload.use_1200bps_touch=true
-sodaq_wdt.upload.wait_for_upload_port=true
-sodaq_wdt.upload.native_usb=true
-sodaq_wdt.build.mcu=cortex-m0plus
-sodaq_wdt.build.f_cpu=48000000L
-sodaq_wdt.build.usb_product="SODAQ WDT"
-sodaq_wdt.build.usb_manufacturer="SODAQ"
-sodaq_wdt.build.board=SODAQ_WDT
-sodaq_wdt.build.core=arduino
-sodaq_wdt.build.extra_flags=-D__SAMD21J18A__ {build.usb_flags} -DENABLE_SERIAL3
-sodaq_wdt.build.ldscript=linker_scripts/gcc/flash_with_bootloader.ld
-sodaq_wdt.build.openocdscript=openocd_scripts/sodaq_wdt.cfg
-sodaq_wdt.build.variant=sodaq_wdt
-sodaq_wdt.build.variant_system_lib=
-sodaq_wdt.build.vid=0x2341
-sodaq_wdt.build.pid=0x804d
-sodaq_wdt.bootloader.tool=openocd
-sodaq_wdt.bootloader.file=autonomo/samd21_sam_ba.bin
-
 # SODAQ ONE Beta
 # ---------------------------------------
 sodaq_one_beta.name=SODAQ ONE Beta
