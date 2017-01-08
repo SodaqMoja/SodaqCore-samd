@@ -32,6 +32,11 @@
 /** Master clock frequency */
 #define VARIANT_MCK           (48000000ul)
 
+/** Copied from bootloader. It will cause a "stay in bootloader" when doing 1200bps-touch */
+#define BOOT_DOUBLE_TAP_ADDRESS         (0x20007FFCul)
+#define BOOT_DOUBLE_TAP_DATA            (*((volatile uint32_t *) BOOT_DOUBLE_TAP_ADDRESS))
+#define DOUBLE_TAP_MAGIC                0x07738135
+
 /*----------------------------------------------------------------------------
  *        Headers
  *----------------------------------------------------------------------------*/
