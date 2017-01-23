@@ -1,6 +1,6 @@
 # SODAQ Core for SAMD21 CPU
 
-This repository containts the source code and configuration files of the SODAQ Core
+This repository contains the source code and configuration files of the SODAQ Core
 for Atmel's SAMD21 processor (used on the SODAQ Autonomo board).
 
 ## Installation on Arduino IDE
