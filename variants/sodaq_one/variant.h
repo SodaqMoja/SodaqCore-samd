@@ -139,6 +139,7 @@ static const uint8_t ACCEL_INT1    = (4u);
 static const uint8_t ACCEL_INT2    = (5u);
 static const uint8_t ENABLE_PIN_IO = (20u);
 static const uint8_t SWITCH_SENSE  = (21u);
+static const uint8_t LORA_RESET    = (49u);
 
 // Other Analog Pins
 static const uint8_t DAC0          = PIN_A0; // or (24u) implications for cores/arduino/wiring_analog.c analogWrite()
