@@ -86,8 +86,11 @@ typedef enum
 
 typedef enum
 {
-	SAMPLE_RATE_x16 = 0x1,	//Fractional
-	SAMPLE_RATE_x8 = 0x3,	//Fractional
+	SAMPLE_RATE_ARITH_x16 = 0x0,	// Arithmetic
+	SAMPLE_RATE_FRACT_x16 = 0x1,	// Fractional
+	SAMPLE_RATE_ARITH_x8 = 0x3,	// Arithmetic
+	SAMPLE_RATE_FRACT_x8 = 0x3,	// Fractional
+	SAMPLE_RATE_FRACT_x3 = 0x3,	// Arithmetic
 } SercomUartSampleRate;
 
 typedef enum
