@@ -40,7 +40,7 @@ void SERCOM::initUART(SercomUartMode mode, SercomUartSampleRate sampleRate, uint
   resetUART();
 
   //Setting the CTRLA register
-  sercom->USART.CTRLA.reg =	SERCOM_USART_CTRLA_MODE(mode) |
+  sercom->USART.CTRLA.reg = SERCOM_USART_CTRLA_MODE(mode) |
                 SERCOM_USART_CTRLA_SAMPR(sampleRate);
 
   //Setting the Interrupt register
@@ -51,27 +51,27 @@ void SERCOM::initUART(SercomUartMode mode, SercomUartSampleRate sampleRate, uint
   {
     uint16_t sampleRateValue;
 
-    if (sampleRate == SAMPLE_RATE_x16) {
+    if (sampleRate == SAMPLE_RATE_FRACT_x16 || sampleRate == SAMPLE_RATE_ARITH_x16) {
       sampleRateValue = 16;
-    } else {
+    } else if (sampleRate == SAMPLE_RATE_FRACT_x8 || sampleRate == SAMPLE_RATE_ARITH_x8) {
       sampleRateValue = 8;
+    } else {
+      sampleRateValue = 3;
     }
 
-    // Asynchronous fractional mode (Table 24-2 in datasheet)
-    //   BAUD = fref / (sampleRateValue * fbaud)
-    // (multiply by 8, to calculate fractional piece)
-    uint32_t baudTimes8 = (SystemCoreClock * 8) / (sampleRateValue * baudrate);
+    if (sampleRate == SAMPLE_RATE_FRACT_x16 || sampleRate == SAMPLE_RATE_FRACT_x8) {
+      // Asynchronous fractional mode (Table 24-2 in datasheet)
+      //   BAUD = fref / (sampleRateValue * fbaud)
+      // (multiply by 8, to calculate fractional piece)
+      uint32_t baudTimes8 = (SystemCoreClock * 8) / (sampleRateValue * baudrate);
 
-    // Check that it fits in 13 bits
-    if ((baudTimes8 / 8) < 8192) {
       sercom->USART.BAUD.FRAC.FP   = (baudTimes8 % 8);
       sercom->USART.BAUD.FRAC.BAUD = (baudTimes8 / 8);
     }
     else {
       // Asynchronous arithmetic mode
-      // 65535 * ( 1 - sampleRateValue * baudrate / SystemCoreClock);
-      // 65535 - 65535 * (sampleRateValue * baudrate / SystemCoreClock));
-      sercom->USART.BAUD.reg = 65535.0f * ( 1.0f - (float)(sampleRateValue) * (float)(baudrate) / (float)(SystemCoreClock));
+      // 65536 * ( 1 - sampleRateValue * baudrate / SystemCoreClock);
+      sercom->USART.BAUD.reg = 65536.0f * ( 1.0f - (float)(sampleRateValue) * (float)(baudrate) / (float)(SystemCoreClock));
     }
   }
 }
