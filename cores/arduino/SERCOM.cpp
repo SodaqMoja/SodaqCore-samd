@@ -70,8 +70,19 @@ void SERCOM::initUART(SercomUartMode mode, SercomUartSampleRate sampleRate, uint
     }
     else {
       // Asynchronous arithmetic mode
+#if 0
       // 65536 * ( 1 - sampleRateValue * baudrate / SystemCoreClock);
       sercom->USART.BAUD.reg = 65536.0f * ( 1.0f - (float)(sampleRateValue) * (float)(baudrate) / (float)(SystemCoreClock));
+#else
+      // Alternative computation.
+      // WARNING. For baudrates above 1200 we need 64 bits arithmetic!!
+      // 65536 - ((sampleRateValue * baudrate * 65536) - (SystemCoreClock / 2)) / SystemCoreClock
+      uint64_t term1 = ((uint64_t)sampleRateValue * baudrate) * 65536;
+      term1 -= (SystemCoreClock / 2);   // Some rounding
+      term1 /= SystemCoreClock;
+      uint16_t baud = (uint16_t)-term1;
+      sercom->USART.BAUD.reg = baud;
+#endif
     }
   }
 }
