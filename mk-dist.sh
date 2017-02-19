@@ -7,6 +7,7 @@
 # is run. The toplevel directory gets a new date-time stamp and thus
 # the checksum of the tar is different.
 
+MYNAME=sodaqsamdboards
 DISTFILES='boards.txt bootloaders cores libraries platform.txt programmers.txt variants'
 
 doit()
@@ -37,12 +38,12 @@ MYTMPDIR=$(mktemp -d ./distXXXXXXXXXX)
 check_presence $DISTFILES
 
 mkdir -p $MYTMPDIR/$VER
-rsync -ai $DISTFILES $MYTMPDIR/$VER/
+rsync -ai --exclude '*~' --exclude 'build/' $DISTFILES $MYTMPDIR/$VER/
 OLDPWD=$PWD
 
 (
 cd $MYTMPDIR
-doit $VER sodaqsamdboards $OLDPWD
+doit $VER $MYNAME $OLDPWD
 )
 
 rm -fr $MYTMPDIR
