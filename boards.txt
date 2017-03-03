@@ -273,7 +273,7 @@ sodaq_one.build.variant_system_lib=
 sodaq_one.build.vid=0x2341
 sodaq_one.build.pid=0x804d
 sodaq_one.bootloader.tool=openocd
-sodaq_one.bootloader.file=one/samd21_sam_ba.bin
+sodaq_one.bootloader.file=one/samd21_sam_ba_one.bin
 
 # SODAQ ONE with ONEBase SPI 
 # ---------------------------------------
@@ -302,4 +302,4 @@ sodaq_one_base.build.variant_system_lib=
 sodaq_one_base.build.vid=0x2341
 sodaq_one_base.build.pid=0x804d
 sodaq_one_base.bootloader.tool=openocd
-sodaq_one_base.bootloader.file=one/samd21_sam_ba.bin
+sodaq_one_base.bootloader.file=one/samd21_sam_ba_one.bin
