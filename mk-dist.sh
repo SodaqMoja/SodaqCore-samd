@@ -15,7 +15,7 @@ doit()
     VER=${1?}
     PREFIX=${2?}
     TARFILE=${PREFIX}-${VER}.tar.bz2
-    tar -cjf ${TARFILE} ${VER}
+    tar -cjf ${TARFILE} SodaqCore-samd
     CRC=$(sha256sum ${TARFILE}  | awk '{print $1}')
     echo
     echo "TARFILE = '${TARFILE}'"
@@ -38,7 +38,7 @@ MYTMPDIR=$(mktemp -d ./distXXXXXXXXXX)
 check_presence $DISTFILES
 
 mkdir -p $MYTMPDIR/$VER
-rsync -ai --exclude '*~' --exclude 'build/' $DISTFILES $MYTMPDIR/$VER/
+rsync -ai --exclude '*~' --exclude 'build/' $DISTFILES $MYTMPDIR/SodaqCore-samd/
 OLDPWD=$PWD
 
 (
