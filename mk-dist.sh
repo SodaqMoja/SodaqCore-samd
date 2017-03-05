@@ -9,13 +9,14 @@
 
 MYNAME=sodaqsamdboards
 DISTFILES='boards.txt bootloaders cores libraries platform.txt programmers.txt variants'
+TOPLEVEL=SodaqCore-samd
 
 doit()
 {
     VER=${1?}
     PREFIX=${2?}
     TARFILE=${PREFIX}-${VER}.tar.bz2
-    tar -cjf ${TARFILE} SodaqCore-samd
+    tar -cjf ${TARFILE} ${TOPLEVEL}
     CRC=$(sha256sum ${TARFILE}  | awk '{print $1}')
     echo
     echo "TARFILE = '${TARFILE}'"
@@ -38,7 +39,7 @@ MYTMPDIR=$(mktemp -d ./distXXXXXXXXXX)
 check_presence $DISTFILES
 
 mkdir -p $MYTMPDIR/$VER
-rsync -ai --exclude '*~' --exclude 'build/' $DISTFILES $MYTMPDIR/SodaqCore-samd/
+rsync -ai --exclude '*~' --exclude 'build/' $DISTFILES $MYTMPDIR/$TOPLEVEL/
 OLDPWD=$PWD
 
 (
