@@ -9,6 +9,9 @@
 
 MYNAME=sodaqsamdboards
 DISTFILES='boards.txt bootloaders cores libraries platform.txt programmers.txt variants'
+
+VERSION=$(sed -n 's/version=//p' platform.txt)
+MYTMPDIR=$(mktemp -d ./distXXXXXXXXXX)
 TOPLEVEL=SodaqCore-samd
 
 doit()
@@ -33,18 +36,23 @@ check_presence()
     done
 }
 
-VER=${1?}
-MYTMPDIR=$(mktemp -d ./distXXXXXXXXXX)
+check_version()
+{
+    CORE_VERSION=$(sed -r -n 's/.*CORE_VERSION "[^ ]+ v?(.+)"/\1/p' cores/arduino/Arduino.h)
+    [ $CORE_VERSION != $VERSION ] && { echo "ERROR: platform.txt version $VERSION does not match CORE_VERSION $CORE_VERSION"; exit 1; }
+}
 
 check_presence $DISTFILES
 
-mkdir -p $MYTMPDIR/$VER
+check_version
+
+mkdir -p $MYTMPDIR/$VERSION
 rsync -ai --exclude '*~' --exclude 'build/' $DISTFILES $MYTMPDIR/$TOPLEVEL/
 OLDPWD=$PWD
 
 (
 cd $MYTMPDIR
-doit $VER $MYNAME $OLDPWD
+doit $VERSION $MYNAME $OLDPWD
 )
 
 rm -fr $MYTMPDIR
