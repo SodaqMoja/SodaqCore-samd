@@ -91,6 +91,7 @@ SECTIONS
 
 		*(.rodata*)
 
+		KEEP(*(.sodaq_keep))
 		KEEP(*(.eh_frame*))
 	} > FLASH
 
