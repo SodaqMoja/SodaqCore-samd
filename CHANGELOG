@@ -1,3 +1,129 @@
+SODAQ SAMD CORE v1.6.13-sodaq
+
+This version is based of ArduionCore-samd 1.6.13, with the following
+additions by SODAQ:
+
+* change LORA_RESET to define
+* Add a new KEEP section .sodaq_keep to be used for the signature
+* mk-dist: Get version from platform.txt and check CORE_VERSION too
+* SodaqOne: add pin 50 for PA19
+* mk-dist: improve configurability
+* boards: Correction name of bootloader for SODAQ ONE
+* mk-dist: use a fixed top level dirname in the tar: SodaqCore-samd
+* Exclude certain files from the distribution (such as *~, build, etc)
+* Add __sodaq_firmware_state located at last 256 bytes of bootloader area
+* Correct enum SercomUartSampleRate for ARITH x3
+* Use an alternative baudrate "arith" method without need for float
+* Correction of enum SAMPLE_RATE_ARITH_x8
+* Correction of previous baudrate fix
+* Optionally switch to non-fractional UART baudrate mode to support 300 baud
+* Add package JSON files to this repo, and only have SAMD boards in it
+* Correct typo in README
+* Do not "self destruct" with 1200-bps touch but use bootloader "double tap"
+* Add LORA_RESET
+* Add __text_start__ to linker files, and align __data_end__ at 16 bytes
+* Add bootloader for SODAQ ONE and rebuild the others too
+* Remove all non-SODAQ variants and bootloaders
+* sodaq_explorer: add specific bootloader for ExpLoRer
+* bootloaders/autonomo: correct pin numbers for Serial RX/TX
+* bootloaders/autonomo: add script to build all bootloaders
+* bootloaders/autonomo: adapt changes after rebasing to ArduinoCore v1.6.11
+* SodaqOne: Fix ACCEL_INT external int mappings
+* sodaq_explorer: add LED_BUILTIN
+* sodaq_explorer: add BUTTON
+* BT_RESET
+* Fixed a comment in sodaq_one/variant.cpp.
+* Update copyright year in boards.txt
+* Fixed an attribute on the LORA_RESET pin.
+* Added LORA_RESET pin on PORTA7.
+* Fixed/added some comments.
+* Fixed the interrupt EIC numbers on pins D0/D1 (also RX/TX of Serial).
+* Fixed the I2C entries for the Wire1 bus.
+* Added SODAQ ONE with  ONEBase SPI sub-variant.
+* White space cleanup in ExpLoRer files
+* Added one extra pin to the ExpLoRer board. This pin will be the chip select of the flash IC
+* Use lower case for file names, and upper case for (build.board) define
+* New board files: sodaq ExpLoRer (microchip)
+* bootloaders: add the bootloader for SODAQ Autonomo
+* boards: rename LoRaONE Beta to SODAQ ONE Beta
+* Comment and whitespace fixes.
+* Renumbered the Digital pins (D0-D3, D6-D13).
+* Renumbered Analog pins (A0-A3, A6-A13).
+* Minor whitespace fix.
+* Removed previously unnecessary PIN_A12, PIN_A13 definitions.
+* Removed the hardware flow control from Serial1 on the Autonomo BETA.
+* The CTS & RTS pins are now swapped for the Autonomo BETA subvariant.
+* Changed the compiler directive to "AUTONOMO_BETA" in boards.txt
+* Added "Autonomo BETA" subvariant to boards.txt
+* Reformat the g_APinDescription tables in variants.cpp (white space only)
+* Fix an issue with the PWM on the TIMER_ALT pins
+* sodaq_one: fix PWM on D8 and D9, add BALT_VOLT
+* Updated the Digital & Analog mappings removing D4/A4 & D5/A5.
+* Moved SPI back to pins 3-6 of J1.
+* Moved Serial1 back to Sercom2 (from 4).
+* Removed I2C1
+* Add initial support for SODAQ ONE with a copy from the LoRaONE Beta
+* Add bootloader.tool and bootloader.file
+* Moved SPI pins to A4-A7.
+* Previous commit should have moved I2C1 to SERCOM2 not SERCOM0.
+* Moved I2C1 from SERCOM4 to SERCOM0.
+* Moved Serial1 from SERCOM2 to SERCOM4.
+* Added second I2C bus (I2C1) on Sercom4 (SDA = D2/A2, SCL = D3/A3).
+* Removed the setting of the digital IO pins to default INPUT.
+* Rename LoRaONE to LoRaONE Beta
+* Update CHANGELOG
+* Added PWM capability to D8 D9.
+* Add Autonomo sub-variant "... with SPI1"
+* Update CHANGELOG
+* Add ARDUINO_SAMD_VARIANT_COMPLIANCE 10603
+* Added PWM to the RGB pins.
+* Fixed Serial. Description required SERCOM_ALT.
+* Fixed a spelling mistake for SWITCH_SENSE.
+* Correction include guard of sodaq_wdt/variant.h
+* There was a one off in the middle of g_APinDescription
+* Rename board id for LoRaONE in boards.txt
+* Increase SERIAL_BUFFER_SIZE to 129
+* Renamed the openocd_scripts cfg file.
+* Initial attempt at a pin mapping for the LoRaONE
+* Add new board variant for WDT
+* Correct chipname in debug script
+* Add new variants "serial3" and "serial23"
+* Add shell script to generate the distribution tar.bz2
+* Add board variant with Serial2
+* Add pins for SD_DFLASH and CS_SD to match the names on Autonomo rev4
+* Avoid using void* in an arithmetic expression (in USBDeviceClass::send)
+* Changed hardcoded A0 for DAC in analogWrite()
+* Adding initialisation of TC6 & TC7
+* Added the same clock divider rule as the G18
+* Remove USB_HOST_ENABLE, we don't have the hardware to output USB power
+* Make prototype of Serial_::begin consistent with implementation
+* Add boards.txt, platform.txt and variants
+
+SODAQ SAMD CORE v1.6.6-sodaq
+
+SODAQ SAMD CORE v1.6.5-sodaq
+
+SODAQ SAMD CORE v1.6.4-sodaq
+
+This version is based of commit 90e234f, plus
+(from the GIT shortlog)
+* Undo the change in platform.txt for 1.6.6
+* Add pins for SD_DFLASH and CS_SD to match the names on Autonomo rev4
+* Avoid using void* in an arithmetic expression (in USBDeviceClass::send)
+* Correct a few types in dtostrf.c to eliminate compilation warnings
+* Changed to using floor(val) instea of iPart.
+* This adds zeros after the decimal point if required.
+* Added support for zero decimal places.
+* A fix for the String class conversion of floats/doubles.
+* Add strncpy_P and strncmp_P defines in pgmspace.h
+* Add a a few missing enum values for ADC and TCx in WVariant.h
+* Changed hardcoded A0 for DAC in analogWrite()
+* Adding initialisation of TC6 & TC7
+* Added the same clock divider rule as the G18
+* Remove USB_HOST_ENABLE, we don't have the hardware to output USB power
+* Make prototype of Serial_::begin consistent with implementation
+* Add boards.txt, platform.txt and variants (for Autonomo)
+
 SAMD CORE 1.6.13 2017.03.31
 
 * Added SDU (SD card Updater) library.
