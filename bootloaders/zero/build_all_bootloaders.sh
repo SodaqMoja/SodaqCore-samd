@@ -16,5 +16,17 @@ mv -v samd21_sam_ba_arduino_mkrzero.* ../mkrzero/
 BOARD_ID=arduino_mkrfox1200 NAME=samd21_sam_ba_arduino_mkrfox1200 make clean all
 mv -v samd21_sam_ba_arduino_mkrfox1200.* ../mkrfox1200/
 
+make BOARD_ID=sodaq_explorer NAME=samd21_sam_ba_explorer clean all
+mkdir -p ../explorer
+mv -v samd21_sam_ba_explorer.* ../explorer/
+
+make BOARD_ID=sodaq_one SAM0_VARIANT=SAMD21G18A NAME=samd21_sam_ba_one clean all
+mkdir -p ../one
+mv -v samd21_sam_ba_one.* ../one/
+
+make BOARD_ID=sodaq_autonomo NAME=samd21_sam_ba_autonomo clean all
+mkdir -p ../autonomo
+mv -v samd21_sam_ba_autonomo.* ../autonomo/
+
 echo Done building bootloaders!
 
