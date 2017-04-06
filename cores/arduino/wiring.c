@@ -57,8 +57,6 @@ void calibrateADC()
  */
 void init( void )
 {
-  uint32_t ul ;
-
   // Set Systick to 1ms interval, common to all Cortex-M variants
   if ( SysTick_Config( SystemCoreClock / 1000 ) )
   {
@@ -67,10 +65,10 @@ void init( void )
   }
 
   // Clock PORT for Digital I/O
-//	PM->APBBMASK.reg |= PM_APBBMASK_PORT ;
+//  PM->APBBMASK.reg |= PM_APBBMASK_PORT ;
 //
 //  // Clock EIC for I/O interrupts
-//	PM->APBAMASK.reg |= PM_APBAMASK_EIC ;
+//  PM->APBAMASK.reg |= PM_APBAMASK_EIC ;
 
   // Clock SERCOM for Serial
   PM->APBCMASK.reg |= PM_APBCMASK_SERCOM0 | PM_APBCMASK_SERCOM1 | PM_APBCMASK_SERCOM2 | PM_APBCMASK_SERCOM3 | PM_APBCMASK_SERCOM4 | PM_APBCMASK_SERCOM5 ;
