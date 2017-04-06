@@ -33,6 +33,12 @@
   #include "board_definitions_arduino_mkrgsm1400.h"
 #elif defined(BOARD_ID_arduino_mkrwan1300)
   #include "board_definitions_arduino_mkrwan1300.h"
+#elif defined(BOARD_ID_sodaq_autonomo)
+  #include "board_definitions_sodaq_autonomo.h"
+#elif defined(BOARD_ID_sodaq_explorer)
+  #include "board_definitions_sodaq_explorer.h"
+#elif defined(BOARD_ID_sodaq_one)
+  #include "board_definitions_sodaq_one.h"
 #else
   #error You must define a BOARD_ID and add the corresponding definitions in board_definitions.h
 #endif
