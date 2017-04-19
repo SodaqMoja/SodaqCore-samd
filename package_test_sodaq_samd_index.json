@@ -66,8 +66,8 @@
                     "category":"Contributed",
                     "url":"http://downloads.sodaq.net/test/sodaqsamdboards-1.6.14.tar.bz2",
                     "archiveFileName":"sodaqsamdboards-1.6.14.tar.bz2",
-                    "checksum":"SHA-256:8cb17f87194150fd089ed3129ff99161031e595ff9ad89828027f44edda9cdf3",
-                    "size":"2135761",
+                    "checksum":"SHA-256:050aadaaa0e1ed3c50c772d0d937f1f99b30d16e1cf3870d6e0a1293cdfe645f",
+                    "size":"2135793",
                     "help":{
                         "online":"https://forums.sodaq.com"
                     },
@@ -106,6 +106,11 @@
                             "packager": "arduino",
                             "name": "CMSIS-Atmel",
                             "version": "1.1.0"
+                        },
+                        {
+                            "packager": "arduino",
+                            "name": "arduinoOTA",
+                            "version": "1.2.0"
                         }
                     ]
                 }
