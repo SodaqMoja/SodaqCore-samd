@@ -11,13 +11,13 @@ MYNAME=sodaqsamdboards
 DISTFILES='boards.txt bootloaders cores libraries platform.txt programmers.txt variants'
 
 VERSION=$(sed -n 's/version=//p' platform.txt)
-TOPLEVEL=$(basename $PWD)
+TOPLEVEL=SodaqCore-samd-${VERSION}
 
 doit()
 {
-    TARNAME=${1?}
-    TOPLEVEL=${2?}
-    TARFILE=${TARNAME}.tar.bz2
+    VER=${1?}
+    PREFIX=${2?}
+    TARFILE=${PREFIX}-${VER}.tar.bz2
     tar -cjf ${TARFILE} ${TOPLEVEL}
     CRC=$(sha256sum ${TARFILE}  | awk '{print $1}')
     echo
@@ -46,13 +46,13 @@ check_presence $DISTFILES
 check_version
 
 MYTMPDIR=$(mktemp -d ./distXXXXXXXXXX)
-mkdir -p $MYTMPDIR/$TOPLEVEL-$VERSION
-rsync -ai --exclude '*~' --exclude 'build/' $DISTFILES $MYTMPDIR/$TOPLEVEL-$VERSION/
+mkdir -p $MYTMPDIR/$VERSION
+rsync -ai --exclude '*~' --exclude 'build/' $DISTFILES $MYTMPDIR/$TOPLEVEL/
 OLDPWD=$PWD
 
 (
 cd $MYTMPDIR
-doit $MYNAME-$VERSION $TOPLEVEL-$VERSION
+doit $VERSION $MYNAME $OLDPWD
 )
 
 rm -fr $MYTMPDIR
