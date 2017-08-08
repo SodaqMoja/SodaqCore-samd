@@ -235,6 +235,17 @@ static const uint8_t DAC0     = PIN_A0; // or (35u) implications for cores/ardui
 #define PIN_USB_DM          (47ul)
 #define PIN_USB_DP          (48ul)
 
+/*
+ * I2S Interfaces
+ */
+#define I2S_INTERFACES_COUNT 1
+
+#define I2S_DEVICE          0
+#define I2S_CLOCK_GENERATOR 3
+#define PIN_I2S_SD          (14u)
+#define PIN_I2S_SCK         (1u)
+#define PIN_I2S_FS          (2u)
+
 #ifdef __cplusplus
 }
 #endif
