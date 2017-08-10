@@ -61,8 +61,8 @@ SIZE=$(ARM_GCC_PATH)size
 
 # -----------------------------------------------------------------------------
 # Boards definitions
-BOARD_ID?=sodaq_autonomo
-SAM0_VARIANT?=SAMD21J18A
+BOARD_ID?=arduino_zero
+SAM0_VARIANT?=SAMD21G18A
 
 # -----------------------------------------------------------------------------
 # Compiler options
