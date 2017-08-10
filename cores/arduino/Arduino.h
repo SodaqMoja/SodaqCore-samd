@@ -20,7 +20,7 @@
 #ifndef Arduino_h
 #define Arduino_h
 
-#define CORE_VERSION "SodaqCore v1.6.14"
+#define CORE_VERSION "SodaqCore v1.6.15"
 
 #include <stdbool.h>
 #include <stdint.h>
