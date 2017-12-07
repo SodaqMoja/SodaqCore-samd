@@ -145,6 +145,7 @@ static const uint8_t GPS_ENABLE    = (18u);
 static const uint8_t BUTTON        = (19u);
 static const uint8_t ACCEL_INT1    = (4u);
 static const uint8_t ACCEL_INT2    = (5u);
+static const uint8_t MAG_INT       = (50u);
 static const uint8_t ENABLE_PIN_IO = (20u);
 static const uint8_t SWITCH_SENSE  = (21u);
 
