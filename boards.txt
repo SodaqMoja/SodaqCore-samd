@@ -14,6 +14,36 @@
 # License along with this library; if not, write to the Free Software
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
+# SODAQ SARA
+# ---------------------------------------
+sodaq_sara.name=SODAQ SARA
+sodaq_sara.vid.0=0x2341
+sodaq_sara.pid.0=0x804d
+sodaq_sara.vid.1=0x2341
+sodaq_sara.pid.1=0x004d
+sodaq_sara.upload.tool=bossac
+sodaq_sara.upload.protocol=sam-ba
+sodaq_sara.upload.maximum_size=262144
+sodaq_sara.upload.use_1200bps_touch=true
+sodaq_sara.upload.wait_for_upload_port=true
+sodaq_sara.upload.native_usb=true
+sodaq_sara.build.mcu=cortex-m0plus
+sodaq_sara.build.f_cpu=48000000L
+sodaq_sara.build.usb_product="SODAQ SARA"
+sodaq_sara.build.usb_manufacturer="SODAQ"
+sodaq_sara.build.board=SODAQ_SARA
+sodaq_sara.build.core=arduino
+sodaq_sara.build.extra_flags=-D__SAMD21J18A__ {build.usb_flags}
+sodaq_sara.build.ldscript=linker_scripts/gcc/flash_with_bootloader.ld
+sodaq_sara.build.openocdscript=openocd_scripts/sodaq_sara.cfg
+sodaq_sara.build.variant=sodaq_sara
+sodaq_sara.build.variant_system_lib=
+sodaq_sara.build.vid=0x2341
+sodaq_sara.build.pid=0x804d
+sodaq_sara.bootloader.tool=openocd
+# Bootloader from SODAQ ExpLoRer
+sodaq_sara.bootloader.file=explorer/samd21_sam_ba_explorer.bin
+
 # SODAQ/ExpLoRer
 # ---------------------------------------
 sodaq_explorer.name=SODAQ ExpLoRer
