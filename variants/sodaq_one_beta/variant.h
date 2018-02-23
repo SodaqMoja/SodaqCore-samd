@@ -19,8 +19,8 @@
 #ifndef _VARIANT_SODAQ_LORAONE_BETA_
 #define _VARIANT_SODAQ_LORAONE_BETA_
 
-// The definitions here needs a SAMD core >=1.6.3
-#define ARDUINO_SAMD_VARIANT_COMPLIANCE 10603
+// The definitions here needs a SAMD core >=1.6.10
+#define ARDUINO_SAMD_VARIANT_COMPLIANCE 10610
 
 /*----------------------------------------------------------------------------
  *        Definitions
