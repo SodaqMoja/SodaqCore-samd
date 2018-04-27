@@ -333,3 +333,32 @@ sodaq_one_base.build.vid=0x2341
 sodaq_one_base.build.pid=0x804d
 sodaq_one_base.bootloader.tool=openocd
 sodaq_one_base.bootloader.file=one/samd21_sam_ba_one.bin
+
+# SODAQ SFF
+# ---------------------------------------
+sodaq_sff.name=SODAQ SFF
+sodaq_sff.vid.0=0x2341
+sodaq_sff.pid.0=0x804d
+sodaq_sff.vid.1=0x2341
+sodaq_sff.pid.1=0x004d
+sodaq_sff.upload.tool=bossac
+sodaq_sff.upload.protocol=sam-ba
+sodaq_sff.upload.maximum_size=262144
+sodaq_sff.upload.use_1200bps_touch=true
+sodaq_sff.upload.wait_for_upload_port=true
+sodaq_sff.upload.native_usb=true
+sodaq_sff.build.mcu=cortex-m0plus
+sodaq_sff.build.f_cpu=48000000L
+sodaq_sff.build.usb_product="SODAQ SFF"
+sodaq_sff.build.usb_manufacturer="SODAQ"
+sodaq_sff.build.board=SODAQ_SFF
+sodaq_sff.build.core=arduino
+sodaq_sff.build.extra_flags=-D__SAMD21G18A__ {build.usb_flags}
+sodaq_sff.build.ldscript=linker_scripts/gcc/flash_with_bootloader.ld
+sodaq_sff.build.openocdscript=openocd_scripts/sodaq_sff.cfg
+sodaq_sff.build.variant=sodaq_sff
+sodaq_sff.build.variant_system_lib=
+sodaq_sff.build.vid=0x2341
+sodaq_sff.build.pid=0x804d
+sodaq_sff.bootloader.tool=openocd
+sodaq_sff.bootloader.file=one/samd21_sam_ba_one.bin
