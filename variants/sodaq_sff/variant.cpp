@@ -101,8 +101,9 @@ const PinDescription g_APinDescription[]=
   // 49
   { PORTA,  4, PIO_OUTPUT,     (PIN_ATTR_DIGITAL),                                     No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_NONE }, // SARA_ENABLE
 
-  // 50
+  // 50..51
   { PORTA, 19, PIO_INPUT,      (PIN_ATTR_DIGITAL),                                     No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_3    }, // MAG_INT
+  { PORTA, 27, PIO_OUTPUT,     (PIN_ATTR_DIGITAL),                                     No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_NONE }, // SARA_TX_ENABLE
 } ;
 
 const void* g_apTCInstances[TCC_INST_NUM+TC_INST_NUM]={ TCC0, TCC1, TCC2, TC3, TC4, TC5 } ;

@@ -95,6 +95,7 @@ extern "C"
 #define PIN_SARA_ENABLE      (49u)
 // #define PIN_SARA_RESET       (49u)
 #define PIN_SARA_R4XX_TOGGLE (15u)
+#define PIN_SARA_TX_ENABLE   (51u)
 
 
 static const uint8_t LED_RED = PIN_LED_RED;
