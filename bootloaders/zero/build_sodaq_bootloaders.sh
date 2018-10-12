@@ -19,4 +19,8 @@ make ${DEBUG} BOARD_ID=sodaq_autonomo SAM0_VARIANT=SAMD21J18A NAME=samd21_sam_ba
 mkdir -p ../autonomo
 mv -v samd21_sam_ba_autonomo.* ../autonomo/
 
+make ${DEBUG} BOARD_ID=sodaq_sff SAM0_VARIANT=SAMD21G18A NAME=samd21_sam_ba_sff clean all
+mkdir -p ../sff
+mv -v samd21_sam_ba_sff.* ../sff/
+
 echo Done building bootloaders!
