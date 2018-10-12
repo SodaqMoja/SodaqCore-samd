@@ -33,6 +33,8 @@
   #include "board_definitions_arduino_mkrgsm1400.h"
 #elif defined(BOARD_ID_arduino_mkrwan1300)
   #include "board_definitions_arduino_mkrwan1300.h"
+#elif defined(BOARD_ID_arduino_mkrwifi1010)
+  #include "board_definitions_arduino_mkrwifi1010.h"
 #elif defined(BOARD_ID_sodaq_autonomo)
   #include "board_definitions_sodaq_autonomo.h"
 #elif defined(BOARD_ID_sodaq_explorer)
