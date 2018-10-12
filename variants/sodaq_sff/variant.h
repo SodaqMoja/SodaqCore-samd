@@ -112,6 +112,8 @@ static const uint8_t MAG_INT = PIN_MAG_INT;
 static const uint8_t SARA_ENABLE = PIN_SARA_ENABLE;
 // static const uint8_t SARA_RESET = PIN_SARA_RESET;
 static const uint8_t SARA_R4XX_TOGGLE = PIN_SARA_R4XX_TOGGLE;
+static const uint8_t SARA_TX_ENABLE = PIN_SARA_TX_ENABLE;
+
 
 /*
  * Analog pins
