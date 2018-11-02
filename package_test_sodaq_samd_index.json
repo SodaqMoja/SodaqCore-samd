@@ -271,7 +271,64 @@
                             "version": "1.2.0"
                         }
                     ]
-                }
+                },
+                {
+                    "name":"SODAQ SAMD Boards",
+                    "architecture":"samd",
+                    "version":"1.6.19",
+                    "category":"Contributed",
+                    "url":"http://downloads.sodaq.net/test/sodaqsamdboards-1.6.19.tar.bz2",
+                    "archiveFileName":"sodaqsamdboards-1.6.19.tar.bz2",
+                    "checksum":"SHA-256:a69694a6be041c86a66d54ad96f1aa88adcb94d55d373295bd21d01fc10ed9a8",
+                    "size":"2216503",
+                    "help":{
+                        "online":"https://forums.sodaq.com"
+                    },
+                    "boards":[
+                        { "name": "SODAQ Autonomo" },
+                        { "name": "SODAQ ONE" },
+                        { "name": "SODAQ ExpLoRer" },
+                        { "name": "SODAQ SARA" },
+                        { "name": "SODAQ SFF" }
+                    ],
+                    "toolsDependencies":[
+                        {
+                            "packager": "arduino",
+                            "name": "arm-none-eabi-gcc",
+                            "version": "4.8.3-2014q1"
+                        },
+                        {
+                            "packager": "arduino",
+                            "name": "bossac",
+                            "version": "1.7.0"
+                        },
+                        {
+                            "packager": "arduino",
+                            "name": "openocd",
+                            "version": "0.9.0-arduino"
+                        },
+                        {
+                            "packager": "arduino",
+                            "name": "avrdude",
+                            "version": "6.3.0-arduino8"
+                        },
+                        {
+                            "packager": "arduino",
+                            "name": "CMSIS",
+                            "version": "4.5.0"
+                        },
+                        {
+                            "packager": "arduino",
+                            "name": "CMSIS-Atmel",
+                            "version": "1.1.0"
+                        },
+                        {
+                            "packager": "arduino",
+                            "name": "arduinoOTA",
+                            "version": "1.2.0"
+                        }
+                    ]
+                }                
             ],
             "tools": []
         }
