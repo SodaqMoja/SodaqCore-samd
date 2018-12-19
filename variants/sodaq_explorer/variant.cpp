@@ -111,11 +111,14 @@ const PinDescription g_APinDescription[]=
   { PORTB, 16, PIO_OUTPUT,     PIN_ATTR_DIGITAL,                                      No_ADC_Channel,  NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_NONE}, // FLASH CS
 
   // 45..46 LoRa, BT Reset
-  { PORTA,  7, PIO_OUTPUT,     PIN_ATTR_DIGITAL,                                      No_ADC_Channel,  NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_NONE}, // LORA RESET
+  { PORTA,  7,  PIO_OUTPUT,    PIN_ATTR_DIGITAL,                                      No_ADC_Channel,  NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_NONE}, // LORA RESET
   { PORTB,  17, PIO_OUTPUT,    PIN_ATTR_DIGITAL,                                      No_ADC_Channel,  NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_NONE}, // BT RESET
 
   // 47 Button
   { PORTA,  14, PIO_OUTPUT,    PIN_ATTR_DIGITAL,                                      No_ADC_Channel,  NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_14  }, // BUTTON
+  
+  // 48 BAT_VOLT
+  { PORTB,  5,  PIO_ANALOG,    PIN_ATTR_ANALOG,                                       ADC_Channel13,   NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_NONE}, // ADC/AIN[13]
 };
 
 const void* g_apTCInstances[TCC_INST_NUM+TC_INST_NUM]={ TCC0, TCC1, TCC2, TC3, TC4, TC5, TC6, TC7 } ;

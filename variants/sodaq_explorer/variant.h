@@ -58,7 +58,7 @@ extern "C"
  *----------------------------------------------------------------------------*/
 
 // Number of pins defined in PinDescription array
-#define PINS_COUNT           (48u)
+#define PINS_COUNT           (49u)
 #define NUM_DIGITAL_PINS     (20u)
 #define NUM_ANALOG_INPUTS    (9u)
 #define NUM_ANALOG_OUTPUTS   (1u)
@@ -98,6 +98,7 @@ extern "C"
 
 // BUTTON
 #define BUTTON              (47u)
+#define BAT_VOLT            (48u)
 
 /*
  * Analog pins
