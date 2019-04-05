@@ -49,10 +49,6 @@ ARM_GCC_PATH?=$(MODULE_PATH)/tools/arm-none-eabi-gcc/4.8.3-2014q1/bin/arm-none-e
 BUILD_PATH=build
 
 # -----------------------------------------------------------------------------
-# The name of the BIN
-NAME?=samd21_sam_ba
-
-# -----------------------------------------------------------------------------
 # Tools
 CC=$(ARM_GCC_PATH)gcc
 OBJCOPY=$(ARM_GCC_PATH)objcopy
@@ -63,6 +59,7 @@ SIZE=$(ARM_GCC_PATH)size
 # Boards definitions
 BOARD_ID?=arduino_zero
 SAM0_VARIANT?=SAMD21G18A
+NAME?=samd21_sam_ba
 
 # -----------------------------------------------------------------------------
 # Compiler options

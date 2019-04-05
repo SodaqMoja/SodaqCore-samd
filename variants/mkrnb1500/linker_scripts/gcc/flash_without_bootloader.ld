@@ -1,3 +1,21 @@
+/*
+  Copyright (c) 2014-2015 Arduino LLC.  All right reserved.
+
+  This library is free software; you can redistribute it and/or
+  modify it under the terms of the GNU Lesser General Public
+  License as published by the Free Software Foundation; either
+  version 2.1 of the License, or (at your option) any later version.
+
+  This library is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+  See the GNU Lesser General Public License for more details.
+
+  You should have received a copy of the GNU Lesser General Public
+  License along with this library; if not, write to the Free Software
+  Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+*/
+
 /* Linker script to configure memory regions.
  * Need modifying for a specific board.
  *   FLASH.ORIGIN: starting address of flash
@@ -7,7 +25,7 @@
  */
 MEMORY
 {
-  FLASH (rx) : ORIGIN = 0x00000000+0x4000, LENGTH = 0x00040000-0x4000
+  FLASH (rx) : ORIGIN = 0x00000000, LENGTH = 0x00040000
   RAM (rwx) : ORIGIN = 0x20000000, LENGTH = 0x00008000
 }
 
@@ -40,6 +58,7 @@ MEMORY
  *   __StackLimit
  *   __StackTop
  *   __stack
+ *   __ram_end__
  */
 ENTRY(Reset_Handler)
 
@@ -49,9 +68,6 @@ SECTIONS
 	{
 		__text_start__ = .;
 
-		KEEP(*(.sketch_boot))
-
-		. = ALIGN(0x4000);
 		KEEP(*(.isr_vector))
 		*(.text*)
 
@@ -153,7 +169,7 @@ SECTIONS
 		PROVIDE_HIDDEN (__fini_array_end = .);
 
 		KEEP(*(.jcr*))
-		. = ALIGN(4);
+		. = ALIGN(16);
 		/* All data end */
 		__data_end__ = .;
 
@@ -187,7 +203,7 @@ SECTIONS
 
 	/* Set stack top to end of RAM, and stack limit move down by
 	 * size of stack_dummy section */
-	__StackTop = ORIGIN(RAM) + LENGTH(RAM);
+	__StackTop = ORIGIN(RAM) + LENGTH(RAM) ;
 	__StackLimit = __StackTop - SIZEOF(.stack_dummy);
 	PROVIDE(__stack = __StackTop);
 

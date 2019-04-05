@@ -135,7 +135,8 @@ uint32_t analogRead(uint32_t pin)
 
   pinPeripheral(pin, PIO_ANALOG);
 
-  if (pin == A0) { // Disable DAC, if analogWrite(A0,dval) used previously the DAC is enabled
+  // Disable DAC, if analogWrite() was used previously to enable the DAC
+  if ((g_APinDescription[pin].ulADCChannelNumber == ADC_Channel0) || (g_APinDescription[pin].ulADCChannelNumber == DAC_Channel0)) {
     syncDAC();
     DAC->CTRLA.bit.ENABLE = 0x00; // Disable DAC
     //DAC->CTRLB.bit.EOEN = 0x00; // The DAC output is turned off.
@@ -194,8 +195,9 @@ void analogWrite(uint32_t pin, uint32_t value)
 
   if ((attr & PIN_ATTR_ANALOG) == PIN_ATTR_ANALOG)
   {
-    if ( pin != DAC0 )  // Only 1 DAC on (PA02) DAC0
-    {
+    // DAC handling code
+
+    if ((pinDesc.ulADCChannelNumber != ADC_Channel0) && (pinDesc.ulADCChannelNumber != DAC_Channel0)) { // Only 1 DAC on AIN0 / PA02
       return;
     }
 
