@@ -361,4 +361,4 @@ sodaq_sff.build.variant_system_lib=
 sodaq_sff.build.vid=0x2341
 sodaq_sff.build.pid=0x804d
 sodaq_sff.bootloader.tool=openocd
-sodaq_sff.bootloader.file=one/samd21_sam_ba_one.bin
+sodaq_sff.bootloader.file=sff/samd21_sam_ba_sff.bin

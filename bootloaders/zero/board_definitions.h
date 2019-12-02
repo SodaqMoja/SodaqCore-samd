@@ -43,6 +43,8 @@
   #include "board_definitions_sodaq_explorer.h"
 #elif defined(BOARD_ID_sodaq_one)
   #include "board_definitions_sodaq_one.h"
+#elif defined(BOARD_ID_sodaq_sff)
+  #include "board_definitions_sodaq_sff.h"
 #else
   #error You must define a BOARD_ID and add the corresponding definitions in board_definitions.h
 #endif

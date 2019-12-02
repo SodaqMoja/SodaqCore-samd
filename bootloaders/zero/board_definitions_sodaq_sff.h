@@ -1,5 +1,5 @@
 /*
-  Copyright (c) 2016 SODAQ.  All right reserved.
+  Copyright (c) 2019 SODAQ.  All right reserved.
 
   This library is free software; you can redistribute it and/or
   modify it under the terms of the GNU Lesser General Public
@@ -67,9 +67,9 @@
 
 /*
  * LEDs definitions
- * Using the green of the RGB led, PB10
+ * Using the green of the RGB led, PA16
  */
-#define BOARD_LED_PORT                    (1)
-#define BOARD_LED_PIN                     (10)
+#define BOARD_LED_PORT                    (0)
+#define BOARD_LED_PIN                     (16)
 
 #endif // _BOARD_DEFINITIONS_H_
