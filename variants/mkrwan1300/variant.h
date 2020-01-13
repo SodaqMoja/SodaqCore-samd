@@ -36,7 +36,10 @@
 // ----
 
 // Number of pins defined in PinDescription array
-#define PINS_COUNT           (35u)
+#ifdef __cplusplus
+extern "C" unsigned int PINCOUNT_fn();
+#endif
+#define PINS_COUNT           (PINCOUNT_fn())
 #define NUM_DIGITAL_PINS     (15u)
 #define NUM_ANALOG_INPUTS    (7u)
 #define NUM_ANALOG_OUTPUTS   (1u)
@@ -176,6 +179,14 @@ extern Uart Serial2;
 
 #endif // __cplusplus
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+unsigned int PINCOUNT_fn();
+#ifdef __cplusplus
+}
+#endif
+
 // These serial port names are intended to allow libraries and architecture-neutral
 // sketches to automatically default to the correct port name for a particular type
 // of use.  For example, a GPS module would normally connect to SERIAL_PORT_HARDWARE_OPEN,
@@ -201,3 +212,13 @@ extern Uart Serial2;
 
 // Alias SerialLoRA to Serial2
 #define SerialLoRa                  Serial2
+
+
+// MKRWAN1310 compatibility layer
+#if defined(USE_BQ24195L_PMIC)
+// ADC_BATTERY is not connected as an ADC but as the flash CS
+#define FLASH_CS      (32u)
+#undef ADC_BATTERY
+// PA28 is connected to IRQ capable PIN
+#define LORA_IRQ      (31u)
+#endif

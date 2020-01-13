@@ -20,15 +20,12 @@
 #ifndef _MONITOR_SAM_BA_H_
 #define _MONITOR_SAM_BA_H_
 
+#include "board_definitions.h"
+
 #define SAM_BA_VERSION              "2.0"
 
-/* Enable the interfaces to save code size */
-#define SAM_BA_BOTH_INTERFACES      0
-#define SAM_BA_UART_ONLY            1
-#define SAM_BA_USBCDC_ONLY          2
-
-#ifndef SAM_BA_INTERFACE
-#define SAM_BA_INTERFACE    SAM_BA_BOTH_INTERFACES
+#if !defined(SAM_BA_BOTH_INTERFACES) &&  !defined(SAM_BA_UART_ONLY) && !defined(SAM_BA_USBCDC_ONLY)
+#define SAM_BA_BOTH_INTERFACES
 #endif
 
 /* Selects USB as the communication interface of the monitor */

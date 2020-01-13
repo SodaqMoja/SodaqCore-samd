@@ -23,9 +23,11 @@
 #include "sam_ba_serial.h"
 #include "board_driver_serial.h"
 #include "board_driver_usb.h"
+#include "board_driver_jtag.h"
 #include "sam_ba_usb.h"
 #include "sam_ba_cdc.h"
 #include "board_driver_led.h"
+#include <stdlib.h>
 
 const char RomBOOT_Version[] = SAM_BA_VERSION;
 const char RomBOOT_ExtendedCapabilities[] = "[Arduino:XYZ]";
@@ -49,7 +51,7 @@ typedef struct
   uint32_t (*getdata_xmd)(void* data, uint32_t length);
 } t_monitor_if;
 
-#if SAM_BA_INTERFACE == SAM_BA_UART_ONLY  ||  SAM_BA_INTERFACE == SAM_BA_BOTH_INTERFACES
+#if defined(SAM_BA_UART_ONLY)  ||  defined(SAM_BA_BOTH_INTERFACES)
 /* Initialize structures with function pointers from supported interfaces */
 const t_monitor_if uart_if =
 {
@@ -63,7 +65,7 @@ const t_monitor_if uart_if =
 };
 #endif
 
-#if SAM_BA_INTERFACE == SAM_BA_USBCDC_ONLY  ||  SAM_BA_INTERFACE == SAM_BA_BOTH_INTERFACES
+#if defined(SAM_BA_USBCDC_ONLY)  ||  defined(SAM_BA_BOTH_INTERFACES)
 //Please note that USB doesn't use Xmodem protocol, since USB already includes flow control and data verification
 //Data are simply forwarded without further coding.
 const t_monitor_if usbcdc_if =
@@ -92,7 +94,7 @@ volatile uint16_t rxLEDPulse = 0; // time remaining for Rx LED pulse
 
 void sam_ba_monitor_init(uint8_t com_interface)
 {
-#if SAM_BA_INTERFACE == SAM_BA_UART_ONLY  ||  SAM_BA_INTERFACE == SAM_BA_BOTH_INTERFACES
+#if defined(SAM_BA_UART_ONLY)  ||  defined(SAM_BA_BOTH_INTERFACES)
   //Selects the requested interface for future actions
   if (com_interface == SAM_BA_INTERFACE_USART)
   {
@@ -100,7 +102,7 @@ void sam_ba_monitor_init(uint8_t com_interface)
     b_sam_ba_interface_usart = true;
   }
 #endif
-#if SAM_BA_INTERFACE == SAM_BA_USBCDC_ONLY  ||  SAM_BA_INTERFACE == SAM_BA_BOTH_INTERFACES
+#if defined(SAM_BA_USBCDC_ONLY)  ||  defined(SAM_BA_BOTH_INTERFACES)
   if (com_interface == SAM_BA_INTERFACE_USBCDC)
   {
     ptr_monitor_if = (t_monitor_if*) &usbcdc_if;
@@ -261,6 +263,11 @@ static void put_uint32(uint32_t n)
   }
   sam_ba_putdata( ptr_monitor_if, buff, 8);
 }
+
+#ifdef ENABLE_JTAG_LOAD
+static uint32_t offset = __UINT32_MAX__;
+static bool flashNeeded = false;
+#endif
 
 static void sam_ba_monitor_loop(void)
 {
@@ -433,6 +440,76 @@ static void sam_ba_monitor_loop(void)
           uint32_t *src_addr = src_buff_addr;
           uint32_t *dst_addr = (uint32_t*)ptr_data;
 
+#ifdef ENABLE_JTAG_LOAD
+
+          if ((uint32_t)dst_addr == 0x40000) {
+              if (jtagInit() != 0) {
+                // fail!
+                sam_ba_putdata( ptr_monitor_if, "y\n\r", 3);
+                return;
+              }
+
+              // content of the first flash page:
+              // offset (32) : length(32) : sha256sum(256) : type (32) : force (32) = 48 bytes
+              // for every section; check last sector of the flash to understand if reflash is needed
+              externalFlashSignatures data[3];
+              jtagFlashReadBlock(LAST_FLASH_PAGE, sizeof(data), (uint8_t*)data);
+              externalFlashSignatures* newData = (externalFlashSignatures*)src_addr;
+              for (int k=0; k<3; k++) {
+                if (newData[k].force != 0) {
+                  offset = newData[k].offset;
+                  flashNeeded = true;
+                  break;
+                }
+                if ((data[k].type == newData[k].type) || (data[k].type == 0xFFFFFFFF)) {
+                  if (newData[k].offset < offset) {
+                    offset = newData[k].offset;
+                  }
+                  if (memcmp(data[k].sha256sum, newData[k].sha256sum, 32) != 0) {
+                    flashNeeded = true;
+                    break;
+                  }
+                }
+              }
+
+              // merge old page and new page
+              for (int k=0; k<3; k++) {
+                if (newData[k].type != 0xFFFFFFFF) {
+                  memcpy(&data[k], &newData[k], sizeof(newData[k]));
+                }
+              }
+
+              jtagFlashEraseBlock(SCRATCHPAD_FLASH_PAGE);
+              // write first page to SCRATCHPAD_FLASH_PAGE (to allow correct verification)
+              for (int j =0; j<size; ) {
+                jtagFlashWriteBlock(SCRATCHPAD_FLASH_PAGE + j*4, 512, (uint32_t*)&src_addr[j]);
+                j += 128;
+              }
+
+              // write real structure with checksums to LAST_FLASH_PAGE
+              jtagFlashWriteBlock(LAST_FLASH_PAGE, sizeof(data),  (uint32_t*)data);
+              goto end;
+          }
+
+
+          if ((uint32_t)dst_addr >= 0x41000) {
+
+            if (flashNeeded == false) {
+              goto end;
+            }
+
+            uint32_t rebasedAddress = (uint32_t)dst_addr - 0x41000 + offset;
+            if (rebasedAddress % 0x10000 == 0) {
+              jtagFlashEraseBlock(rebasedAddress);
+            }
+
+            for (int j =0; j<size; ) {
+              jtagFlashWriteBlock(rebasedAddress + j*4, 512, (uint32_t*)&src_addr[j]);
+              j += 128;
+            }
+            goto end;
+          }
+#endif
           // Set automatic page write
           NVMCTRL->CTRLB.bit.MANW = 0;
 
@@ -464,6 +541,8 @@ static void sam_ba_monitor_loop(void)
           }
         }
 
+end:
+
         // Notify command completed
         sam_ba_putdata( ptr_monitor_if, "Y\n\r", 3);
       }
@@ -476,10 +555,35 @@ static void sam_ba_monitor_loop(void)
         // Syntax: Z[START_ADDR],[SIZE]#
         // Returns: Z[CRC]#
 
-        uint8_t *data = (uint8_t *)ptr_data;
+        uint8_t *data;
         uint32_t size = current_number;
         uint16_t crc = 0;
         uint32_t i = 0;
+
+#ifdef ENABLE_JTAG_LOAD
+        uint8_t buf[4096];
+#endif
+
+#ifdef ENABLE_JTAG_LOAD
+        if ((uint32_t)ptr_data == 0x40000) {
+          data = (uint8_t*)buf;
+          for (int j =0; j<size; ) {
+            jtagFlashReadBlock(SCRATCHPAD_FLASH_PAGE + j, 256, &data[j]);
+            j += 256;
+          }
+        } else if ((uint32_t)ptr_data >= 0x41000) {
+          data = (uint8_t*)buf;
+          for (int j =0; j<size; ) {
+            jtagFlashReadBlock((uint32_t)ptr_data + offset - 0x41000 + j, 256, &data[j]);
+            j += 256;
+          }
+        } else {
+          data = (uint8_t *)ptr_data;
+        }
+#else
+        data = (uint8_t *)ptr_data;
+#endif
+
         for (i=0; i<size; i++)
           crc = serial_add_crc(*data++, crc);
 

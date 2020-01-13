@@ -63,12 +63,13 @@ NAME?=samd21_sam_ba
 
 # -----------------------------------------------------------------------------
 # Compiler options
-CFLAGS_EXTRA=-D__$(SAM0_VARIANT)__ -DBOARD_ID_$(BOARD_ID)
+SAM_BA_INTERFACES?=SAM_BA_BOTH_INTERFACES
+CFLAGS_EXTRA=-D__$(SAM0_VARIANT)__ -DBOARD_ID_$(BOARD_ID) -D$(SAM_BA_INTERFACES)
 CFLAGS=-mthumb -mcpu=cortex-m0plus -Wall -c -std=gnu99 -ffunction-sections -fdata-sections -nostdlib -nostartfiles --param max-inline-insns-single=500
 ifdef DEBUG
   CFLAGS+=-g3 -O1 -DDEBUG=1
 else
-  CFLAGS+=-Os -DDEBUG=0
+  CFLAGS+=-Os -DDEBUG=0 -flto
 endif
 
 ELF=$(NAME).elf
@@ -76,7 +77,7 @@ BIN=$(NAME).bin
 HEX=$(NAME).hex
 
 
-INCLUDES=-I"$(MODULE_PATH)/tools/CMSIS/4.5.0/CMSIS/Include/" -I"$(MODULE_PATH)/tools/CMSIS-Atmel/1.1.0/CMSIS/Device/ATMEL/"
+INCLUDES=-I"$(MODULE_PATH)/tools/CMSIS/4.5.0/CMSIS/Include/" -I"$(MODULE_PATH)/tools/CMSIS-Atmel/1.2.0/CMSIS/Device/ATMEL/"
 
 # -----------------------------------------------------------------------------
 # Linker options
@@ -89,6 +90,7 @@ SOURCES= \
   board_driver_i2c.c \
   board_driver_led.c \
   board_driver_pmic.c \
+  board_driver_jtag.c \
   board_driver_serial.c \
   board_driver_usb.c \
   board_init.c \
