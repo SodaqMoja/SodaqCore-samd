@@ -11,20 +11,20 @@ MYNAME=sodaqsamdboards
 DISTFILES='boards.txt bootloaders cores libraries platform.txt programmers.txt variants'
 
 VERSION=$(sed -n 's/version=//p' platform.txt)
+MYTMPDIR=$(mktemp -d ./distXXXXXXXXXX)
 TOPLEVEL=SodaqCore-samd-${VERSION}
 
 doit()
 {
     VER=${1?}
     PREFIX=${2?}
+    OLDPWD=${3?}
     TARFILE=${PREFIX}-${VER}.tar.bz2
     tar -cjf ${TARFILE} ${TOPLEVEL}
-    CRC=$(sha256sum ${TARFILE}  | awk '{print $1}')
-    echo
-    echo "TARFILE = '${TARFILE}'"
-    echo "\"checksum\":\"SHA-256:${CRC}\"",
-    echo "\"size\":\"$(cat ${TARFILE} | wc -c)\"",
-    cp -p $TARFILE $OLDPWD/
+
+    python3 ${OLDPWD}/create-package-json.py ${OLDPWD}/package_templates/package_sodaq_samd_index.json ${TARFILE} > package_sodaq_samd_index.json
+    cp -pf ${TARFILE} ${OLDPWD}/
+    cp -pf package_sodaq_samd_index.json ${OLDPWD}
 }
 
 check_presence()
@@ -45,9 +45,10 @@ check_presence $DISTFILES
 
 check_version
 
-MYTMPDIR=$(mktemp -d ./distXXXXXXXXXX)
 mkdir -p $MYTMPDIR/$VERSION
-rsync -ai --exclude '*~' --exclude 'build/' $DISTFILES $MYTMPDIR/$TOPLEVEL/
+rsync -ai --exclude '*~' --exclude 'build/' --exclude '*.ltrans.*' $DISTFILES $MYTMPDIR/$TOPLEVEL/
+# For some reason the files and dirs are made writable for other when running in gitlab-ci
+chmod -R o-w $MYTMPDIR/$TOPLEVEL/
 OLDPWD=$PWD
 
 (
