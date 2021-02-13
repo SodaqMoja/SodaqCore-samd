@@ -20,7 +20,7 @@
 # https://github.com/arduino/Arduino/wiki/Arduino-IDE-1.5---3rd-party-Hardware-specification
 
 name=SODAQ SAMD (32-bits ARM Cortex-M0+) Boards
-version=1.8.5
+version=1.8.6
 
 # Compile variables
 # -----------------
@@ -117,7 +117,8 @@ recipe.output.save_file={build.project_name}.{build.variant}.{build.preferred_ou
 
 ## Compute size
 recipe.size.pattern="{compiler.path}{compiler.size.cmd}" -A "{build.path}/{build.project_name}.elf"
-recipe.size.regex=\.text\s+([0-9]+).*
+recipe.size.regex=^(?:\.text|\.data|)\s+([0-9]+).*
+recipe.size.regex.data=^(?:\.data|\.bss)\s+([0-9]+).*
 
 # Upload/Debug tools
 # ------------------
