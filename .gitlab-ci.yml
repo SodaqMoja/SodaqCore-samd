@@ -1,0 +1,62 @@
+stages:
+  - build_tar
+  - build_docker
+
+build-release:
+  image: gitlab.m2m4all.com:5050/arduino/dockers/sodaq-arduino-base:1.8.6
+  stage: build_tar
+  script:
+    - (cd bootloaders/zero; ./build_sodaq_bootloaders.sh)
+    - ./mk-dist.sh
+  artifacts:
+    paths:
+      - sodaqsamdboards-*.tar.bz2
+      - package_sodaq_samd_index.json
+  only:
+    - /^v.*-sodaq$/
+
+build-branch:
+  image: gitlab.m2m4all.com:5050/arduino/dockers/sodaq-arduino-base:1.8.6
+  stage: build_tar
+  script:
+    - (cd bootloaders/zero; ./build_sodaq_bootloaders.sh)
+    - ./mk-dist.sh
+  artifacts:
+    paths:
+      - sodaqsamdboards-*.tar.bz2
+      - package_sodaq_samd_index.json
+  except:
+    - /^v.*-sodaq$/
+
+docker-build-release:
+  image: docker:19.03.11
+  stage: build_docker
+  tags:
+    - docker-in-docker
+  services:
+    - docker:dind
+  before_script:
+    - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
+  script:
+    - BOARDS_VERSION=$(sed -n 's/^version=//p' platform.txt)
+    - docker build --build-arg BOARDS_VERSION=${BOARDS_VERSION} --pull -t "$CI_REGISTRY_IMAGE:${BOARDS_VERSION}" .
+    - docker push "$CI_REGISTRY_IMAGE:${BOARDS_VERSION}"
+  only:
+    - /^v.*-sodaq$/
+
+docker-build-branch:
+  image: docker:19.03.11
+  stage: build_docker
+  tags:
+    - docker-in-docker
+  services:
+    - docker:dind
+  before_script:
+    - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
+  script:
+    - BOARDS_VERSION=$(sed -n 's/^version=//p' platform.txt)
+    - echo docker build --build-arg BOARDS_VERSION=${BOARDS_VERSION} --pull -t "$CI_REGISTRY_IMAGE:${BOARDS_VERSION}_test" .
+    - docker build --build-arg BOARDS_VERSION=${BOARDS_VERSION} --pull -t "$CI_REGISTRY_IMAGE:${BOARDS_VERSION}_test" .
+    - docker push "$CI_REGISTRY_IMAGE:${BOARDS_VERSION}_test"
+  except:
+    - /^v.*-sodaq$/
