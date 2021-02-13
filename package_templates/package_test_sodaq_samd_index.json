@@ -12,7 +12,7 @@
                 {
                     "name":"SODAQ SAMD Boards",
                     "architecture":"samd",
-                    "version":"1.8.3",
+                    "version":"1.8.4",
                     "category":"Contributed",
                     "url":"http://downloads.sodaq.net/test/{}",
                     "archiveFileName":"{}",
