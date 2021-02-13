@@ -391,9 +391,10 @@ uint32_t EndPoints[] =
 	0,
 #endif
 };
+#define EP_ARRAY_SIZE   (sizeof(EndPoints)/sizeof(EndPoints[0]))
 
 void USBDeviceClass::initEndpoints() {
-	for (uint8_t i = 1; i < sizeof(EndPoints) && EndPoints[i] != 0; i++) {
+	for (uint8_t i = 1; (i < EP_ARRAY_SIZE) && (EndPoints[i] != 0); i++) {
 		initEP(i, EndPoints[i]);
 	}
 }
@@ -405,7 +406,6 @@ void USBDeviceClass::initEP(uint32_t ep, uint32_t config)
 		usbd.epBank1SetSize(ep, 64);
 		usbd.epBank1SetAddress(ep, &udd_ep_in_cache_buffer[ep]);
 		usbd.epBank1SetType(ep, 4); // INTERRUPT IN
-		usbd.epBank1EnableTransferComplete(ep);
 	}
 	else if (config == (USB_ENDPOINT_TYPE_BULK | USB_ENDPOINT_OUT(0)))
 	{
@@ -419,9 +419,6 @@ void USBDeviceClass::initEP(uint32_t ep, uint32_t config)
 		usbd.epBank1SetSize(ep, 64);
 		usbd.epBank1SetAddress(ep, &udd_ep_in_cache_buffer[ep]);
 		usbd.epBank1SetType(ep, 3); // BULK IN
-
-		// XXX: this somehow interfere with CDC rx - WHY???
-		// usbd.epBank1EnableTransferComplete(ep);
 	}
 	else if (config == USB_ENDPOINT_TYPE_CONTROL)
 	{
@@ -437,9 +434,6 @@ void USBDeviceClass::initEP(uint32_t ep, uint32_t config)
 
 		// Release OUT EP
 		usbd.epReleaseOutBank0(ep, 64);
-
-		// Enable Setup-Received interrupt
-		usbd.epBank0EnableSetupReceived(ep);
 	}
 }
 
@@ -797,6 +791,10 @@ bool USBDeviceClass::handleStandardSetup(USBSetup &setup)
 			initEndpoints();
 			_usbConfiguration = setup.wValueL;
 
+			#ifdef CDC_ENABLED
+			SerialUSB.enableInterrupt();
+			#endif
+
 			sendZlp(0);
 			return true;
 		} else {
@@ -831,6 +829,9 @@ void USBDeviceClass::ISRHandler()
 
 		// Configure EP 0
 		initEP(0, USB_ENDPOINT_TYPE_CONTROL);
+
+		// Enable Setup-Received interrupt
+		usbd.epBank0EnableSetupReceived(0);
 
 		_usbConfiguration = 0;
 	}
