@@ -14,65 +14,6 @@
 # License along with this library; if not, write to the Free Software
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
-# SODAQ SARA
-# ---------------------------------------
-sodaq_sara.name=SODAQ SARA
-sodaq_sara.vid.0=0x2341
-sodaq_sara.pid.0=0x804d
-sodaq_sara.vid.1=0x2341
-sodaq_sara.pid.1=0x004d
-sodaq_sara.upload.tool=bossac
-sodaq_sara.upload.protocol=sam-ba
-sodaq_sara.upload.maximum_size=262144
-sodaq_sara.upload.use_1200bps_touch=true
-sodaq_sara.upload.wait_for_upload_port=true
-sodaq_sara.upload.native_usb=true
-sodaq_sara.build.mcu=cortex-m0plus
-sodaq_sara.build.f_cpu=48000000L
-sodaq_sara.build.usb_product="SODAQ SARA"
-sodaq_sara.build.usb_manufacturer="SODAQ"
-sodaq_sara.build.board=SODAQ_SARA
-sodaq_sara.build.core=arduino
-sodaq_sara.build.extra_flags=-DVERY_LOW_POWER -D__SAMD21J18A__ {build.usb_flags}
-sodaq_sara.build.ldscript=linker_scripts/gcc/flash_with_bootloader.ld
-sodaq_sara.build.openocdscript=openocd_scripts/sodaq_sara.cfg
-sodaq_sara.build.variant=sodaq_sara
-sodaq_sara.build.variant_system_lib=
-sodaq_sara.build.vid=0x2341
-sodaq_sara.build.pid=0x804d
-sodaq_sara.bootloader.tool=openocd
-# Bootloader from SODAQ ExpLoRer
-sodaq_sara.bootloader.file=explorer/samd21_sam_ba_explorer.bin
-
-# SODAQ/ExpLoRer
-# ---------------------------------------
-sodaq_explorer.name=SODAQ ExpLoRer
-sodaq_explorer.vid.0=0x2341
-sodaq_explorer.pid.0=0x804d
-sodaq_explorer.vid.1=0x2341
-sodaq_explorer.pid.1=0x004d
-sodaq_explorer.upload.tool=bossac
-sodaq_explorer.upload.protocol=sam-ba
-sodaq_explorer.upload.maximum_size=262144
-sodaq_explorer.upload.use_1200bps_touch=true
-sodaq_explorer.upload.wait_for_upload_port=true
-sodaq_explorer.upload.native_usb=true
-sodaq_explorer.build.mcu=cortex-m0plus
-sodaq_explorer.build.f_cpu=48000000L
-sodaq_explorer.build.usb_product="SODAQ ExpLoRer"
-sodaq_explorer.build.usb_manufacturer="SODAQ"
-sodaq_explorer.build.board=SODAQ_EXPLORER
-sodaq_explorer.build.core=arduino
-sodaq_explorer.build.extra_flags=-DVERY_LOW_POWER -D__SAMD21J18A__ {build.usb_flags}
-sodaq_explorer.build.ldscript=linker_scripts/gcc/flash_with_bootloader.ld
-sodaq_explorer.build.openocdscript=openocd_scripts/sodaq_explorer.cfg
-sodaq_explorer.build.variant=sodaq_explorer
-sodaq_explorer.build.variant_system_lib=
-sodaq_explorer.build.vid=0x2341
-sodaq_explorer.build.pid=0x804d
-sodaq_explorer.bootloader.tool=openocd
-sodaq_explorer.bootloader.file=explorer/samd21_sam_ba_explorer.bin
-
 # SODAQ/Autonomo
 # ---------------------------------------
 sodaq_autonomo.name=SODAQ Autonomo
@@ -247,6 +188,35 @@ sodaq_autonomo_spi1.build.pid=0x804d
 sodaq_autonomo_spi1.bootloader.tool=openocd
 sodaq_autonomo_spi1.bootloader.file=autonomo/samd21_sam_ba_autonomo.bin
 
+# SODAQ/ExpLoRer
+# ---------------------------------------
+sodaq_explorer.name=SODAQ ExpLoRer
+sodaq_explorer.vid.0=0x2341
+sodaq_explorer.pid.0=0x804d
+sodaq_explorer.vid.1=0x2341
+sodaq_explorer.pid.1=0x004d
+sodaq_explorer.upload.tool=bossac
+sodaq_explorer.upload.protocol=sam-ba
+sodaq_explorer.upload.maximum_size=262144
+sodaq_explorer.upload.use_1200bps_touch=true
+sodaq_explorer.upload.wait_for_upload_port=true
+sodaq_explorer.upload.native_usb=true
+sodaq_explorer.build.mcu=cortex-m0plus
+sodaq_explorer.build.f_cpu=48000000L
+sodaq_explorer.build.usb_product="SODAQ ExpLoRer"
+sodaq_explorer.build.usb_manufacturer="SODAQ"
+sodaq_explorer.build.board=SODAQ_EXPLORER
+sodaq_explorer.build.core=arduino
+sodaq_explorer.build.extra_flags=-DVERY_LOW_POWER -D__SAMD21J18A__ {build.usb_flags}
+sodaq_explorer.build.ldscript=linker_scripts/gcc/flash_with_bootloader.ld
+sodaq_explorer.build.openocdscript=openocd_scripts/sodaq_explorer.cfg
+sodaq_explorer.build.variant=sodaq_explorer
+sodaq_explorer.build.variant_system_lib=
+sodaq_explorer.build.vid=0x2341
+sodaq_explorer.build.pid=0x804d
+sodaq_explorer.bootloader.tool=openocd
+sodaq_explorer.bootloader.file=explorer/samd21_sam_ba_explorer.bin
+
 # SODAQ ONE Beta
 # ---------------------------------------
 sodaq_one_beta.name=SODAQ ONE Beta
@@ -334,9 +304,39 @@ sodaq_one_base.build.pid=0x804d
 sodaq_one_base.bootloader.tool=openocd
 sodaq_one_base.bootloader.file=one/samd21_sam_ba_one.bin
 
-# SODAQ SFF
+# SODAQ SARA AFF
 # ---------------------------------------
-sodaq_sff.name=SODAQ SFF
+sodaq_sara.name=SODAQ SARA AFF
+sodaq_sara.vid.0=0x2341
+sodaq_sara.pid.0=0x804d
+sodaq_sara.vid.1=0x2341
+sodaq_sara.pid.1=0x004d
+sodaq_sara.upload.tool=bossac
+sodaq_sara.upload.protocol=sam-ba
+sodaq_sara.upload.maximum_size=262144
+sodaq_sara.upload.use_1200bps_touch=true
+sodaq_sara.upload.wait_for_upload_port=true
+sodaq_sara.upload.native_usb=true
+sodaq_sara.build.mcu=cortex-m0plus
+sodaq_sara.build.f_cpu=48000000L
+sodaq_sara.build.usb_product="SODAQ SARA"
+sodaq_sara.build.usb_manufacturer="SODAQ"
+sodaq_sara.build.board=SODAQ_SARA
+sodaq_sara.build.core=arduino
+sodaq_sara.build.extra_flags=-DVERY_LOW_POWER -D__SAMD21J18A__ {build.usb_flags}
+sodaq_sara.build.ldscript=linker_scripts/gcc/flash_with_bootloader.ld
+sodaq_sara.build.openocdscript=openocd_scripts/sodaq_sara.cfg
+sodaq_sara.build.variant=sodaq_sara
+sodaq_sara.build.variant_system_lib=
+sodaq_sara.build.vid=0x2341
+sodaq_sara.build.pid=0x804d
+sodaq_sara.bootloader.tool=openocd
+# Bootloader from SODAQ ExpLoRer
+sodaq_sara.bootloader.file=explorer/samd21_sam_ba_explorer.bin
+
+# SODAQ SARA SFF
+# ---------------------------------------
+sodaq_sff.name=SODAQ SARA SFF
 sodaq_sff.vid.0=0x2341
 sodaq_sff.pid.0=0x804d
 sodaq_sff.vid.1=0x2341
