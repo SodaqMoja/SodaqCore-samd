@@ -25,8 +25,8 @@
                         { "name": "SODAQ Autonomo" },
                         { "name": "SODAQ ONE" },
                         { "name": "SODAQ ExpLoRer" },
-                        { "name": "SODAQ SARA" },
-                        { "name": "SODAQ SFF" }
+                        { "name": "SODAQ SARA AFF" },
+                        { "name": "SODAQ SARA SFF" }
                     ],
                     "toolsDependencies": [
                         {
