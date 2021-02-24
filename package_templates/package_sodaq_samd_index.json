@@ -19,7 +19,7 @@
                     "checksum":"SHA-256:{}",
                     "size":"{}",
                     "help":{
-                        "online":"https://forums.sodaq.com"
+                        "online":"https://forum.sodaq.com"
                     },
                     "boards":[
                         { "name": "SODAQ Autonomo" },
