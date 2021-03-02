@@ -10,23 +10,33 @@
             },
             "platforms":[
                 {
-                    "name":"SODAQ SAMD Boards",
-                    "architecture":"samd",
-                    "version":"1.8.6",
-                    "category":"Contributed",
-                    "url":"http://downloads.sodaq.net/test/{}",
-                    "archiveFileName":"{}",
-                    "checksum":"SHA-256:{}",
-                    "size":"{}",
-                    "help":{
-                        "online":"https://forum.sodaq.com"
+                    "name": "SODAQ SAMD Boards",
+                    "architecture": "samd",
+                    "version": "1.8.7",
+                    "category": "Contributed",
+                    "url": "http://downloads.sodaq.net/test/{}",
+                    "archiveFileName": "{}",
+                    "checksum": "SHA-256:{}",
+                    "size": "{}",
+                    "help": {
+                        "online": "https://forum.sodaq.com"
                     },
-                    "boards":[
-                        { "name": "SODAQ Autonomo" },
-                        { "name": "SODAQ ONE" },
-                        { "name": "SODAQ ExpLoRer" },
-                        { "name": "SODAQ SARA AFF" },
-                        { "name": "SODAQ SARA SFF" }
+                    "boards": [
+                        {
+                            "name": "SODAQ Autonomo"
+                        },
+                        {
+                            "name": "SODAQ ONE"
+                        },
+                        {
+                            "name": "SODAQ ExpLoRer"
+                        },
+                        {
+                            "name": "SODAQ SARA AFF"
+                        },
+                        {
+                            "name": "SODAQ SARA SFF"
+                        }
                     ],
                     "toolsDependencies": [
                         {
