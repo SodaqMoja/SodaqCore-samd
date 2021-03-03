@@ -12,6 +12,7 @@ build-release:
     paths:
       - sodaqsamdboards-*.tar.bz2
       - package_sodaq_samd_index.json
+      - package_test_sodaq_samd_index.json
   only:
     - /^v.*-sodaq$/
 
@@ -25,6 +26,7 @@ build-branch:
     paths:
       - sodaqsamdboards-*.tar.bz2
       - package_sodaq_samd_index.json
+      - package_test_sodaq_samd_index.json
   except:
     - /^v.*-sodaq$/
 

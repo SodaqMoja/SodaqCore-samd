@@ -23,8 +23,10 @@ doit()
     tar -cjf ${TARFILE} ${TOPLEVEL}
 
     python3 ${OLDPWD}/create-package-json.py ${OLDPWD}/package_templates/package_sodaq_samd_index.json ${TARFILE} > package_sodaq_samd_index.json
+    python3 ${OLDPWD}/create-package-json.py ${OLDPWD}/package_templates/package_test_sodaq_samd_index.json ${TARFILE} > package_test_sodaq_samd_index.json
     cp -pf ${TARFILE} ${OLDPWD}/
     cp -pf package_sodaq_samd_index.json ${OLDPWD}
+    cp -pf package_test_sodaq_samd_index.json ${OLDPWD}
 }
 
 check_presence()
