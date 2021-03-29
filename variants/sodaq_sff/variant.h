@@ -96,6 +96,7 @@ extern "C"
 // #define PIN_SARA_RESET       (49u)
 #define PIN_SARA_R4XX_TOGGLE (15u)
 #define PIN_SARA_TX_ENABLE   (51u)
+#define PIN_SARA_STATUS      (52u)
 
 
 static const uint8_t LED_RED = PIN_LED_RED;
@@ -113,6 +114,7 @@ static const uint8_t SARA_ENABLE = PIN_SARA_ENABLE;
 // static const uint8_t SARA_RESET = PIN_SARA_RESET;
 static const uint8_t SARA_R4XX_TOGGLE = PIN_SARA_R4XX_TOGGLE;
 static const uint8_t SARA_TX_ENABLE = PIN_SARA_TX_ENABLE;
+static const uint8_t SARA_STATUS = PIN_SARA_STATUS;
 
 
 /*
