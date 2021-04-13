@@ -40,6 +40,18 @@ unsigned char sduBoot[0x4000] = {
   #include "boot/mkrnb1500.h"
 #elif defined(ARDUINO_SAM_ZERO)
   #include "boot/mzero.h"
+#elif defined(ARDUINO_SODAQ_AUTONOMO)
+  #include "boot/sodaq_autonomo.h"
+#elif defined(ARDUINO_SODAQ_EXPLORER)
+  #include "boot/sodaq_explorer.h"
+#elif defined(ARDUINO_SODAQ_ONE_BETA)
+  #include "boot/sodaq_one_beta.h"
+#elif defined(ARDUINO_SODAQ_ONE)
+  #include "boot/sodaq_one.h
+#elif defined(ARDUINO_SODAQ_SARA)
+  #include "boot/sodaq_sara.h
+#elif defined(ARDUINO_SODAQ_SFF)
+  #include "boot/sodaq_sff.h
 #else
   #error "Unsupported board!"
 #endif
