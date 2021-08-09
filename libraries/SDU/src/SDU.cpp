@@ -47,11 +47,11 @@ unsigned char sduBoot[0x4000] = {
 #elif defined(ARDUINO_SODAQ_ONE_BETA)
   #include "boot/sodaq_one_beta.h"
 #elif defined(ARDUINO_SODAQ_ONE)
-  #include "boot/sodaq_one.h
+  #include "boot/sodaq_one.h"
 #elif defined(ARDUINO_SODAQ_SARA)
-  #include "boot/sodaq_sara.h
+  #include "boot/sodaq_sara.h"
 #elif defined(ARDUINO_SODAQ_SFF)
-  #include "boot/sodaq_sff.h
+  #include "boot/sodaq_sff.h"
 #else
   #error "Unsupported board!"
 #endif
